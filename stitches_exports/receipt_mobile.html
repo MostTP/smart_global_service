@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SGS | Transaction Confirmed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=DM+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#ffdad6",
+                    "surface-container-lowest": "#00101b",
+                    "outline": "#8d909d",
+                    "tertiary-container": "#853100",
+                    "on-surface": "#c9e6ff",
+                    "surface-tint": "#b0c6ff",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "tertiary": "#ffb596",
+                    "surface-container-low": "#001e2f",
+                    "on-background": "#c9e6ff",
+                    "primary": "#b0c6ff",
+                    "on-tertiary": "#581e00",
+                    "surface-bright": "#183c54",
+                    "background": "#001523",
+                    "secondary": "#a9c7ff",
+                    "on-tertiary-container": "#ffa781",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "secondary-fixed-dim": "#a9c7ff",
+                    "on-primary": "#002d6f",
+                    "on-error": "#690005",
+                    "inverse-primary": "#2b5bb5",
+                    "surface-variant": "#12384f",
+                    "on-secondary-fixed-variant": "#00468c",
+                    "tertiary-fixed": "#ffdbcd",
+                    "inverse-surface": "#c9e6ff",
+                    "on-secondary-container": "#c6d9ff",
+                    "on-secondary-fixed": "#001b3d",
+                    "surface-container-high": "#022d43",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-primary-fixed-variant": "#00429c",
+                    "error-container": "#93000a",
+                    "primary-fixed": "#d9e2ff",
+                    "outline-variant": "#434652",
+                    "surface-container": "#002235",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "on-surface-variant": "#c3c6d4",
+                    "secondary-container": "#005db7",
+                    "secondary-fixed": "#d6e3ff",
+                    "on-secondary": "#003063",
+                    "surface": "#001523",
+                    "primary-container": "#0d47a1",
+                    "on-primary-fixed": "#001945",
+                    "surface-container-highest": "#12384f",
+                    "surface-dim": "#001523",
+                    "error": "#ffb4ab",
+                    "inverse-on-surface": "#0c344a",
+                    "on-primary-container": "#a1bbff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-padding": "120px",
+                    "gutter": "24px",
+                    "unit": "4px",
+                    "margin-edge": "64px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "headline-section": ["Cormorant Garamond"],
+                    "display-hero": ["Cormorant Garamond"],
+                    "body-large": ["DM Sans"],
+                    "ui-standard": ["DM Sans"],
+                    "label-eyebrow": ["DM Sans"]
+            },
+            "fontSize": {
+                    "headline-section": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "300"}],
+                    "display-hero": ["84px", {"lineHeight": "0.9", "letterSpacing": "-0.03em", "fontWeight": "100"}],
+                    "body-large": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "300"}],
+                    "ui-standard": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "label-eyebrow": ["11px", {"lineHeight": "1.0", "letterSpacing": "0.14em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .global-grid {
+            background-image: 
+                linear-gradient(rgba(187, 222, 251, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(187, 222, 251, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center center;
+        }
+        .wireframe-circle {
+            background-image: radial-gradient(circle, transparent 69%, rgba(187, 222, 251, 0.1) 70%, transparent 71%);
+            background-size: 100% 100%;
+        }
+        .data-stream {
+            position: absolute;
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #b0c6ff, transparent);
+            opacity: 0.3;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface selection:bg-primary/30 min-h-screen font-body-large overflow-x-hidden">
+<!-- Background Layer: Global Grid -->
+<div class="fixed inset-0 global-grid z-0 pointer-events-none"></div>
+<div class="fixed inset-0 bg-gradient-to-b from-background via-transparent to-background z-0 pointer-events-none"></div>
+<!-- Navigation Suppressed for Transactional Focus per "The Destination Rule" -->
+<!-- Top Bar (Minimalist Title) -->
+<header class="fixed top-0 w-full z-50 bg-[rgba(0,21,35,0.03)] backdrop-blur-3xl border-b border-[#BBDEFB]/10">
+<div class="max-w-container-max mx-auto px-margin-edge py-6 flex justify-between items-center">
+<span class="font-display-hero text-headline-section text-on-surface uppercase tracking-tighter">SGS</span>
+<span class="font-label-eyebrow text-secondary uppercase">Transaction Confirmed</span>
+</div>
+</header>
+<main class="relative z-10 pt-32 pb-section-padding px-6 md:px-margin-edge max-w-container-max mx-auto">
+<div class="flex flex-col items-center text-center">
+<!-- Hero: Checkmark & Global Wireframe -->
+<div class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center mb-12">
+<!-- Decorative Wireframe Rings -->
+<div class="absolute inset-0 border border-[#BBDEFB]/10 rounded-full animate-pulse"></div>
+<div class="absolute inset-4 border border-[#BBDEFB]/5 rounded-full"></div>
+<div class="absolute inset-0 wireframe-circle opacity-50"></div>
+<!-- The Checkmark -->
+<div class="z-20 text-[#1565C0] flex items-center justify-center">
+<span class="material-symbols-outlined !text-7xl md:!text-9xl" style="font-variation-settings: 'wght' 200;">check_circle</span>
+</div>
+</div>
+<!-- Success Message -->
+<div class="space-y-4 mb-16">
+<p class="font-label-eyebrow text-secondary tracking-[0.2em] uppercase">Status: Success</p>
+<h1 class="font-display-hero text-headline-section md:text-display-hero max-w-3xl mx-auto">
+                    Payment Authorized. <br/> Your Command has been initiated.
+                </h1>
+</div>
+<!-- Receipt Details: Glass-on-Void Card -->
+<div class="w-full max-w-2xl bg-[rgba(255,255,255,0.03)] backdrop-blur-[24px] border border-[#BBDEFB]/10 p-8 md:p-12 mb-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-12 text-left">
+<div>
+<p class="font-label-eyebrow text-on-surface-variant uppercase mb-2">Reference ID</p>
+<p class="font-ui-standard text-primary tracking-widest text-lg">#SGS-4922-A</p>
+</div>
+<div>
+<p class="font-label-eyebrow text-on-surface-variant uppercase mb-2">Date &amp; Time</p>
+<p class="font-ui-standard text-on-surface text-lg">Oct 24, 2024 • 14:32 UTC</p>
+</div>
+<div class="border-t border-[#BBDEFB]/5 pt-8">
+<p class="font-label-eyebrow text-on-surface-variant uppercase mb-2">Payment Method</p>
+<p class="font-ui-standard text-on-surface text-lg">Global Ledger • Visa **** 9012</p>
+</div>
+<div class="border-t border-[#BBDEFB]/5 pt-8">
+<p class="font-label-eyebrow text-on-surface-variant uppercase mb-2">Total Paid</p>
+<p class="font-headline-section text-primary text-3xl">$42,900.00 <span class="text-xs font-ui-standard text-on-surface-variant uppercase tracking-normal">USD</span></p>
+</div>
+</div>
+<!-- Technical Status Bar -->
+<div class="mt-12 pt-8 border-t border-[#BBDEFB]/10">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-eyebrow text-on-surface-variant uppercase">Infrastructure Allocation</span>
+<span class="font-ui-standard text-primary">100% Complete</span>
+</div>
+<div class="h-[2px] w-full bg-surface-variant">
+<div class="h-full bg-[#1565C0] w-full"></div>
+</div>
+</div>
+</div>
+<!-- Action Items: Sharp Button Row -->
+<div class="flex flex-col md:flex-row gap-4 w-full max-w-2xl">
+<button class="flex-1 bg-primary text-on-primary py-5 px-8 font-label-eyebrow uppercase tracking-widest transition-all active:scale-95 hover:bg-secondary">
+                    Download Official PDF
+                </button>
+<button class="flex-1 border border-[#BBDEFB] text-on-surface py-5 px-8 font-label-eyebrow uppercase tracking-widest transition-all active:scale-95 hover:bg-white/5">
+                    View in Dashboard
+                </button>
+</div>
+<button class="mt-10 font-label-eyebrow text-on-surface-variant hover:text-primary uppercase tracking-[0.2em] transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+                Contact Operations
+            </button>
+</div>
+</main>
+<!-- Footer: SGS Monumental -->
+<footer class="relative w-full py-section-padding border-t border-[#BBDEFB]/10 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-edge flex flex-col items-center gap-12">
+<h2 class="font-display-hero text-[12vw] leading-none text-on-surface uppercase tracking-[0.2em] opacity-10 select-none">
+                SGS
+            </h2>
+<div class="flex flex-col md:flex-row justify-between w-full items-center gap-8 text-on-surface-variant">
+<p class="font-ui-standard text-xs tracking-widest uppercase">© 2024 SMART GLOBAL SERVICE. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8">
+<a class="font-ui-standard text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Lagos</a>
+<a class="font-ui-standard text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">London</a>
+<a class="font-ui-standard text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Dubai</a>
+<a class="font-ui-standard text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">Singapore</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Atmosphere/Detail Elements -->
+<div class="fixed top-[20%] left-[10%] data-stream opacity-10 h-[400px]"></div>
+<div class="fixed bottom-[10%] right-[15%] data-stream opacity-10 h-[600px]"></div>
+<!-- Background Imagery for Depth -->
+<div class="fixed top-0 right-0 w-1/2 h-full opacity-20 -z-10 mix-blend-screen pointer-events-none">
+<img alt="Satellite view of earth" class="w-full h-full object-cover grayscale" data-alt="A cinematic, high-contrast aerial perspective of a global network of city lights at night, viewed from an orbital satellite position. The image is rendered in deep blues and stark whites with a focus on interconnected infrastructure pathways. The style is professional and editorial, with a cold, precise atmosphere that suggests global command and high-level data observation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDkNAVsIFTsK7vAHHGkLCWq5cdFbWfu0oB5pIhBLdanoMHIl7HyM_45M4t2pU5ix2smd_1sPIut_C49xOVqnmj-aVpraS8hohr8DxBYUKiVUaNLGPOWZM9tufeAFtqGSu89xh5QXziiI6TLpGFQ3MTudOuQ8IdoDRz8Ra1ak9_MagYVvfzxfxxWoe2Wkas7qpQ3XqBM80v9u4OCy4LMWV5tbs0sh2JYi7OiO0cnjWnHfzkMh6rl-IOSziCMFEoJemmgACZPCYpaCk"/>
+</div>
+</body></html>

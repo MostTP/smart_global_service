@@ -1,0 +1,70 @@
+.main {
+  padding: 128px 24px 72px;
+  min-height: 100dvh;
+  background: var(--color-surface);
+}
+
+.header {
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 1.05;
+  font-weight: 300;
+}
+
+.subtitle {
+  margin: 16px 0 0;
+  color: var(--color-on-surface-variant);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.card {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(187, 222, 250, 0.1);
+  backdrop-filter: blur(24px);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon {
+  color: var(--color-primary);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 24px;
+}
+
+.out {
+  color: var(--color-primary);
+}
+

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,100..900;1,100..900&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#001523",
+                    "primary": "#b0c6ff",
+                    "background": "#001523",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "on-primary-fixed-variant": "#00429c",
+                    "outline-variant": "#434652",
+                    "surface-container": "#002235",
+                    "on-secondary-container": "#c6d9ff",
+                    "on-secondary": "#003063",
+                    "surface-bright": "#183c54",
+                    "on-secondary-fixed": "#001b3d",
+                    "on-background": "#c9e6ff",
+                    "inverse-on-surface": "#0c344a",
+                    "outline": "#8d909d",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "on-tertiary-fixed": "#360f00",
+                    "surface-container-lowest": "#00101b",
+                    "surface-variant": "#12384f",
+                    "on-surface": "#c9e6ff",
+                    "on-primary-fixed": "#001945",
+                    "secondary": "#a9c7ff",
+                    "on-primary": "#002d6f",
+                    "surface": "#001523",
+                    "on-primary-container": "#a1bbff",
+                    "primary-fixed": "#d9e2ff",
+                    "inverse-primary": "#2b5bb5",
+                    "tertiary-container": "#853100",
+                    "tertiary": "#ffb596",
+                    "surface-tint": "#b0c6ff",
+                    "on-error": "#690005",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-highest": "#12384f",
+                    "secondary-container": "#005db7",
+                    "on-tertiary": "#581e00",
+                    "on-surface-variant": "#c3c6d4",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "surface-container-low": "#001e2f",
+                    "secondary-fixed-dim": "#a9c7ff",
+                    "on-tertiary-container": "#ffa781",
+                    "on-secondary-fixed-variant": "#00468c",
+                    "surface-container-high": "#022d43",
+                    "inverse-surface": "#c9e6ff",
+                    "error": "#ffb4ab",
+                    "primary-container": "#0d47a1",
+                    "secondary-fixed": "#d6e3ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0rem",
+                    "lg": "0rem",
+                    "xl": "0rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "gutter": "24px",
+                    "section-padding": "120px",
+                    "unit": "4px",
+                    "margin-edge": "64px"
+            },
+            "fontFamily": {
+                    "ui-standard": ["DM Sans"],
+                    "headline-section": ["Cormorant Garamond"],
+                    "display-hero": ["Cormorant Garamond"],
+                    "body-large": ["DM Sans"],
+                    "label-eyebrow": ["DM Sans"]
+            },
+            "fontSize": {
+                    "ui-standard": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "headline-section": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "300"}],
+                    "display-hero": ["84px", {"lineHeight": "0.9", "letterSpacing": "-0.03em", "fontWeight": "100"}],
+                    "body-large": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "300"}],
+                    "label-eyebrow": ["11px", {"lineHeight": "1.0", "letterSpacing": "0.14em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(187, 222, 251, 0.1);
+        }
+        .flight-path-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.15;
+        }
+        .technical-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #BBDEFB;
+            padding: 8px 0;
+            color: #c9e6ff;
+            width: 100%;
+        }
+        .technical-input:focus {
+            outline: none;
+            border-bottom-color: #b0c6ff;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body class="bg-surface-dim text-on-surface font-ui-standard selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 z-50 w-full bg-surface/30 backdrop-blur-2xl border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-margin-edge max-w-container-max mx-auto h-20">
+<span class="font-display-hero text-headline-section text-primary uppercase">SGS</span>
+<div class="hidden md:flex gap-8">
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">HOME</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">SERVICES</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">FLEET</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-primary border-b border-primary" href="#">AVIATION</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">MARINE</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">LOGISTICS</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">ABOUT</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">CONTACT</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 font-ui-standard text-ui-standard uppercase tracking-widest scale-100 active:scale-95 transition-transform">
+                REQUEST SERVICE
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-height-[921px] flex items-center pt-32 overflow-hidden px-margin-edge">
+<svg class="flight-path-svg" fill="none" viewbox="0 0 1440 800" xmlns="http://www.w3.org/2000/svg">
+<path d="M-100 600C200 400 600 700 900 300C1100 50 1500 200 1600 100" stroke="#BBDEFB" stroke-width="0.5"></path>
+<path d="M-50 750C300 550 700 650 1000 250C1200 0 1400 150 1550 50" stroke="#BBDEFB" stroke-width="0.5"></path>
+<path d="M200 900C500 500 800 600 1100 200" stroke="#BBDEFB" stroke-width="0.5"></path>
+</svg>
+<div class="max-w-container-max mx-auto w-full relative z-10">
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 lg:col-span-8">
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase mb-6 block">Global Aviation Division</span>
+<h1 class="font-display-hero text-display-hero text-on-surface mb-8">Celestial Precision. Grounded Reliability.</h1>
+<p class="font-body-large text-body-large text-on-surface-variant max-w-2xl mb-12">
+                        Operating from our strategic hub in Lagos, SGS Aviation provides bespoke flight operations for the world's most demanding cargo and executive requirements.
+                    </p>
+<div class="flex gap-6">
+<button class="bg-primary text-on-primary px-10 py-5 font-ui-standard text-ui-standard uppercase tracking-widest">Book Mission</button>
+<button class="border border-outline px-10 py-5 font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface hover:border-primary transition-colors">View Operations</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Operational Hub Emphasis -->
+<section class="py-section-padding bg-surface-container-low px-margin-edge">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 lg:col-span-5">
+<span class="font-label-eyebrow text-label-eyebrow text-secondary uppercase mb-4 block">Strategic Node</span>
+<h2 class="font-headline-section text-headline-section text-on-surface mb-6">The Lagos Terminal: Gateway to West African Airspace</h2>
+<p class="font-body-large text-body-large text-on-surface-variant mb-8">
+                        Our primary operational base in Lagos serves as a critical nexus for continental logistics. Equipped with dedicated hangars and rapid-response maintenance crews, we ensure zero-latency deployment for both scheduled and ad-hoc aviation services.
+                    </p>
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-ui-standard text-ui-standard uppercase tracking-widest">LOS | Murtala Muhammed International</span>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-7">
+<div class="glass-panel p-1 aspect-video relative">
+<img alt="Lagos Hangar Operations" class="w-full h-full object-cover" data-alt="A cinematic wide-angle shot of a high-tech private jet hangar at night in Lagos. The space is filled with soft, cool blue lighting that reflects off the polished concrete floor. A sleek white jet sits in the center while technical staff in dark uniforms conduct maintenance in the background. The atmosphere is professional, quiet, and highly organized." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVxnFJsrehTEk2yUOsP7PORVPwtmF2fNniruWejw-MkhNwgaXhd4f3mp17OGlKANcH3soneoePTKrrG6hxXH7WwAjlRF5_5z2m8XCIZcJvTm0cxocki5KvT1eq6ovIhgaROn57dM-Z7eqCivJx3aLSP3UDL3JSmPnEzw-RDk8S90X14Ni2vIA6Y_5bmQRu8LxoPl8fn8gs2qnsHr_rw2MAiPpQDEMpgGgf5yxaSV6ImcW8AUNq1DzNesTh_fPOHOWaXoB2OKC_11Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/80 to-transparent flex items-end p-8">
+<div class="flex gap-12">
+<div>
+<div class="text-primary font-display-hero text-headline-section">24/7</div>
+<div class="font-label-eyebrow text-label-eyebrow uppercase text-on-surface-variant">Readiness</div>
+</div>
+<div>
+<div class="text-primary font-display-hero text-headline-section">4.2k</div>
+<div class="font-label-eyebrow text-label-eyebrow uppercase text-on-surface-variant">Sorties / Year</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Fleet Section -->
+<section class="py-section-padding px-margin-edge">
+<div class="max-w-container-max mx-auto">
+<div class="mb-20 text-center">
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase mb-4 block">Fleet Portfolio</span>
+<h2 class="font-headline-section text-headline-section text-on-surface">Precision-Engineered Selection</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Card 1: Light Jet -->
+<div class="glass-panel p-8 group hover:border-primary transition-all duration-500">
+<div class="font-label-eyebrow text-label-eyebrow text-secondary uppercase mb-2">Class Alpha</div>
+<h3 class="font-headline-section text-2xl text-on-surface mb-6">Light Jet</h3>
+<div class="mb-8 overflow-hidden aspect-[4/3]">
+<img alt="Light Jet" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A sleek white light executive jet flying above a layer of pristine white clouds during a clear twilight. The sky is a deep indigo transitioning to a soft cyan. The aircraft is captured from a slightly elevated angle, highlighting its sharp aerodynamic lines and high-contrast shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWoACZU3-ddQ-5KBwmmkegZjbQTZPNpb7ZbrdOaQSCHy3a76XZqn1Fmnx9kX9-GJLrmkchFc-hyWWg6A-1IopcD3k_klCBLgS6DdKpb0j0jCXIPW2hVaGt0ZxXJc_aDCY1HOJ3G13ruFPSlNOLUjeHGLg9mVzsv3dQVWD32gB4a5o15PTn13w73c9RwW-uk-VXxE20ILCtpHdw9iUHKhqx0RpufESARdvCLcwjf250gf66ilMCCglvj-1AAxbMza2CEr7RvVoz6mw"/>
+</div>
+<div class="space-y-4 border-t border-outline-variant/30 pt-6">
+<div class="flex justify-between items-center">
+<span class="font-ui-standard text-xs uppercase text-on-surface-variant">Capacity</span>
+<span class="font-ui-standard text-sm text-primary">6-7 PAX</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-ui-standard text-xs uppercase text-on-surface-variant">Range</span>
+<span class="font-ui-standard text-sm text-primary">1,800 NM</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-ui-standard text-xs uppercase text-on-surface-variant">Speed</span>
+<span class="font-ui-standard text-sm text-primary">450 KTAS</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Midsize -->
+<div class="glass-panel p-8 group hover:border-primary transition-all duration-500">
+<div class="font-label-eyebrow text-label-eyebrow text-secondary uppercase mb-2">Class Bravo</div>
+<h3 class="font-headline-section text-2xl text-on-surface mb-6">Midsize Jet</h3>
+<div class="mb-8 overflow-hidden aspect-[4/3]">
+<img alt="Midsize Jet" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A midsize executive jet taxiing on a runway at dusk. The runway lights create glowing streaks of amber and white against the dark navy asphalt. The jet's metallic surface reflects the cool ambient light, emphasizing its sophisticated build and powerful engines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8xjJQgAQiK6ISz0srOIasaJlJJVKOvQqQYhtSHKGNKGWExyQhpzxzkNfbm3QO2D2V9T2MnLuRmWPyiAL03aAqJuZ6fHSlVc5VVdC6tZvxC8M3DY22FhjcoqiAz7jJMEygAGhQBOTzcnkMgZ_YET1Fak923UJDnzTL21NnxjzzGCI-KGNrA6X8QLQxw5_08AkNlgFrHxnH4zTQWZMUBvPHHWp7WjWHzVk5JzIlCh5b-K2hhkDAp8lVQ9zwOse6YvEKNlm3otJiRZI"/>
+</div>
+<div class="space-y-4 border-t border-outline-variant/30 pt-6">
+<div class="flex justify-between items-center">
+<span class="font-ui-standard text-xs uppercase text-on-surface-variant">Capacity</span>
+<span class="font-ui-standard text-sm text-primary">8-9 PAX</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-ui-standard text-xs uppercase text-on-surface-variant">Range</span>
+<span class="font-ui-standard text-sm text-primary">3,200 NM</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-ui-standard text-xs uppercase text-on-surface-variant">Speed</span>
+<span class="font-ui-standard text-sm text-primary">480 KTAS</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Super Midsize -->
+<div class="glass-panel p-8 group hover:border-primary transition-all duration-500">
+<div class="font-label-eyebrow text-label-eyebrow text-secondary uppercase mb-2">Class Gamma</div>
+<h3 class="font-headline-section text-2xl text-on-surface mb-6">Super Midsize</h3>
+<div class="mb-8 overflow-hidden aspect-[4/3]">
+<img alt="Super Midsize" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A super midsize business jet parked on an airport apron during a moody, overcast morning. The sky is a dramatic gray with hints of steel blue. High-contrast lighting highlights the textures of the aircraft's composite materials and the precision of its assembly. The mood is one of quiet power and readiness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLxcj3nBVPyqRUFaHVORmxknymiH6hNJ7saUbOfQOwo-7-yveetaIOLzCJPPTtglkMBjL88kuOYDx0CFyveMoCIrBzkaG2fBKUJZW7wss_l8ZtB43JbnetgLriaqq-_c3R3Gwt11uilkELSJhgXO4N9fWHaKXOjXI2j8dZCqY1f73pFzvKinJ2S0QXQvBrEdEEC6vHAOTbV88bYkj4od7X_tYXtvtAHbOW_Kixx81gH9EPX5Uv5MCJiDmPkw4RuiQgsyzqqy6IaNg"/>
+</div>
+<div class="space-y-4 border-t border-outline-variant/30 pt-6">
+<div class="flex justify-between items-center">
+<span class="font-ui-standard text-xs uppercase text-on-surface-variant">Capacity</span>
+<span class="font-ui-standard text-sm text-primary">10-12 PAX</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-ui-standard text-xs uppercase text-on-surface-variant">Range</span>
+<span class="font-ui-standard text-sm text-primary">4,000 NM</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-ui-standard text-xs uppercase text-on-surface-variant">Speed</span>
+<span class="font-ui-standard text-sm text-primary">510 KTAS</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Heavy Jet -->
+<div class="glass-panel p-8 group hover:border-primary transition-all duration-500">
+<div class="font-label-eyebrow text-label-eyebrow text-secondary uppercase mb-2">Class Delta</div>
+<h3 class="font-headline-section text-2xl text-on-surface mb-6">Heavy Jet</h3>
+<div class="mb-8 overflow-hidden aspect-[4/3]">
+<img alt="Heavy Jet" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A massive heavy long-range business jet climbing into the sky against a cinematic sunrise. The fuselage is bathed in a warm, golden-blue gradient light. The scene captures the immense scale of the aircraft as it leaves trailing vapor lines in the crisp, high-altitude air." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaVkNgyxmajvs90fOR-0ev6-OKyCq_KL_zgEWKVWe44qaKyN_Q6ZqoxckAvajz-GVi4-xVzOcr0sFskwAKNzreBp1bT5fezWzIJHJkL3glzDcebzcekcP2NqaxNl0qb_ArnBDsIbSq9SgX-K2S06C-JLJ9Z4utPLNxhz60mBfSWxgfYxgcGSI14m1lPM656yKKjq1wO0rQj_QgO9Y9o4UrVZX0clP_eP8ieN5IpjG-acbUuIn2JRb-za2fa3_VNCVEznLJ7a_mEYw"/>
+</div>
+<div class="space-y-4 border-t border-outline-variant/30 pt-6">
+<div class="flex justify-between items-center">
+<span class="font-ui-standard text-xs uppercase text-on-surface-variant">Capacity</span>
+<span class="font-ui-standard text-sm text-primary">14-19 PAX</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-ui-standard text-xs uppercase text-on-surface-variant">Range</span>
+<span class="font-ui-standard text-sm text-primary">6,500 NM</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-ui-standard text-xs uppercase text-on-surface-variant">Speed</span>
+<span class="font-ui-standard text-sm text-primary">530 KTAS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Section: In-Flight Experience -->
+<section class="py-section-padding bg-surface-container px-margin-edge relative overflow-hidden">
+<div class="absolute inset-0 opacity-5 pointer-events-none">
+<div class="grid grid-cols-12 h-full w-full">
+<div :key="i" class="border-r border-starlight" v-for="i in 12"></div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto relative z-10">
+<div class="grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 lg:col-span-6 order-2 lg:order-1">
+<div class="grid grid-cols-2 gap-6">
+<div class="glass-panel p-1">
+<img alt="Interior Detail 1" class="w-full aspect-square object-cover" data-alt="An ultra-luxurious private jet cabin interior featuring cream-colored leather seats and dark wood accents. The lighting is soft and warm, highlighting the high-quality textures and spacious layout. A crystal glass sits on a small table, suggesting refined comfort and absolute privacy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKJonpwzLC18Fq55Fxk24rCdwgGM4NN-m11s8alm6KWCEv2uYYMHnwGGPSF__empTV2PDqu40qfLeglx4dv0Pd2_sMWxfwxQCRslHP5kz4tNZb6G8LdSxiW-Fy0-1CFFj_1sGGJ9s-uPJb92JLq1o0nyfm7V67L5yvBIat6wZcGNLfqjwKUmsju2gufA7mQyQ7PZZTepcvpNAZINYlDJTbYltc42X9WBbR6MdFF1ANyIXarFo3xiVQ9VaHzvpByy5jwFN_Ennxmh0"/>
+</div>
+<div class="glass-panel p-1 mt-12">
+<img alt="Interior Detail 2" class="w-full aspect-square object-cover" data-alt="A close-up of high-end catering on a private flight, featuring an elegantly plated gourmet meal with fresh ingredients and artisanal bread. The table is set with minimalist silverware and a crisp linen napkin, all under soft, focused lighting that emphasizes the culinary quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-k5rmCiBp6WMwHYuDtZ1PkaOud_2TBGqLmY6-i6KHNjRFESHu7vA9Y8ajiSI9HiRWH03g2ex1NJoFYFA5HXIRVN-2ypmTVKaIxuFqXX9H8CR01hqUXSMUB-m5IS5NZAhIu0bf1_zmJ1egLJVfwLkIrDRrXkWJA_M1dQLndSepCOelhYOHo-QEBLij-9lk37WJKyAb7JuqR7XuPDq8K2tMrE8knQ2RLQ6n3WZsZ6wNhZygvcQzHdUhRyG64N_ekbUKvgujrYcElok"/>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-5 lg:offset-1 order-1 lg:order-2 mb-16 lg:mb-0">
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase mb-4 block">Unrivaled Standards</span>
+<h2 class="font-headline-section text-headline-section text-on-surface mb-8">The SGS Sanctuary</h2>
+<ul class="space-y-8">
+<li class="flex gap-6">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
+<div>
+<h4 class="font-ui-standard font-bold text-on-surface mb-1">Curated Gastronomy</h4>
+<p class="font-ui-standard text-on-surface-variant">Bespoke menus developed by Michelin-standard partners, tailored to dietary requirements and regional tastes.</p>
+</div>
+</li>
+<li class="flex gap-6">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shield</span>
+<div>
+<h4 class="font-ui-standard font-bold text-on-surface mb-1">Absolute Privacy</h4>
+<p class="font-ui-standard text-on-surface-variant">Soundproofed cabins and secure communication channels for sensitive corporate deliberations.</p>
+</div>
+</li>
+<li class="flex gap-6">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">Confetti</span>
+<div>
+<h4 class="font-ui-standard font-bold text-on-surface mb-1">Atmospheric Connectivity</h4>
+<p class="font-ui-standard text-on-surface-variant">Ultra-high-speed satellite uplink ensuring global synchronization throughout your mission.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Multi-step Request Form -->
+<section class="py-section-padding px-margin-edge bg-surface-dim">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-16">
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase mb-4 block">Mission Initiation</span>
+<h2 class="font-headline-section text-headline-section text-on-surface">Secure Service Request</h2>
+</div>
+<div class="glass-panel p-12">
+<div class="flex justify-between mb-12">
+<div class="flex items-center gap-4">
+<span class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary font-bold">1</span>
+<span class="font-label-eyebrow text-label-eyebrow uppercase text-primary">Logistics</span>
+</div>
+<div class="w-24 h-px bg-outline-variant/30 mt-4"></div>
+<div class="flex items-center gap-4 opacity-30">
+<span class="w-8 h-8 flex items-center justify-center border border-outline text-on-surface font-bold">2</span>
+<span class="font-label-eyebrow text-label-eyebrow uppercase">Fleet</span>
+</div>
+<div class="w-24 h-px bg-outline-variant/30 mt-4"></div>
+<div class="flex items-center gap-4 opacity-30">
+<span class="w-8 h-8 flex items-center justify-center border border-outline text-on-surface font-bold">3</span>
+<span class="font-label-eyebrow text-label-eyebrow uppercase">Contact</span>
+</div>
+</div>
+<form class="space-y-10">
+<div class="grid grid-cols-2 gap-gutter">
+<div class="relative group">
+<label class="font-label-eyebrow text-label-eyebrow uppercase text-secondary mb-2 block">Origin Airport (ICAO/IATA)</label>
+<input class="technical-input" placeholder="e.g. DNMM" type="text"/>
+</div>
+<div class="relative group">
+<label class="font-label-eyebrow text-label-eyebrow uppercase text-secondary mb-2 block">Destination Airport</label>
+<input class="technical-input" placeholder="e.g. EGLL" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<div class="relative group">
+<label class="font-label-eyebrow text-label-eyebrow uppercase text-secondary mb-2 block">Departure Date</label>
+<input class="technical-input" type="date"/>
+</div>
+<div class="relative group">
+<label class="font-label-eyebrow text-label-eyebrow uppercase text-secondary mb-2 block">Mission Type</label>
+<select class="technical-input">
+<option>Passenger Transport</option>
+<option>Cargo / Logistics</option>
+<option>Medical Evacuation</option>
+</select>
+</div>
+</div>
+<div class="pt-8 flex justify-end">
+<button class="bg-primary text-on-primary px-12 py-4 font-ui-standard text-ui-standard uppercase tracking-widest hover:bg-secondary transition-colors" type="button">
+                            Next Phase
+                        </button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-edge py-section-padding max-w-container-max mx-auto">
+<div class="col-span-1">
+<span class="font-display-hero text-3xl text-primary uppercase block mb-8">SGS</span>
+<p class="font-ui-standard text-on-surface-variant text-sm">Providing absolute clarity and command in global logistics since 2024.</p>
+</div>
+<div class="col-span-1 space-y-4">
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase block mb-4">DIVISIONS</span>
+<a class="block font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1" href="#">GLOBAL NODES</a>
+<a class="block font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1" href="#">SECTORS</a>
+<a class="block font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 font-bold text-primary" href="#">AVIATION DIVISION</a>
+</div>
+<div class="col-span-1 space-y-4">
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase block mb-4">RESOURCES</span>
+<a class="block font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1" href="#">FLEET OPERATIONS</a>
+<a class="block font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1" href="#">MARINE LOGISTICS</a>
+<a class="block font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1" href="#">STRATEGIC ADVISORY</a>
+</div>
+<div class="col-span-1">
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase block mb-4">COMMAND CENTER</span>
+<p class="font-ui-standard text-on-surface-variant text-sm mb-4">Lagos Operational Base<br/>Plot 42B Air Cargo Road<br/>MMIA, Ikeja</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">terminal</span>
+<span class="material-symbols-outlined text-on-surface-variant">satellite</span>
+<span class="material-symbols-outlined text-on-surface-variant">public</span>
+</div>
+</div>
+</div>
+<div class="font-display-hero text-on-surface w-full text-center py-section-padding opacity-10 text-[120px] select-none pointer-events-none">
+            SMART GLOBAL SERVICE
+        </div>
+<div class="border-t border-outline-variant/10 py-6 text-center">
+<span class="font-label-eyebrow text-[10px] text-on-surface-variant opacity-50 uppercase tracking-widest">© 2024 SMART GLOBAL SERVICE. ALL RIGHTS RESERVED.</span>
+</div>
+</footer>
+</body></html>

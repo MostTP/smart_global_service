@@ -1,0 +1,137 @@
+.main {
+  padding: 128px 24px 72px;
+  min-height: 100dvh;
+  background: var(--color-surface);
+}
+
+.header {
+  max-width: 720px;
+  margin: 0 auto 32px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 300;
+}
+
+.subtitle {
+  margin: 12px 0 0;
+  color: var(--color-on-surface-variant);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.card {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(187, 222, 250, 0.1);
+  backdrop-filter: blur(24px);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(141, 144, 157, 0.1);
+  margin-bottom: 16px;
+}
+
+.label {
+  color: var(--color-on-surface-variant);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.value {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.total {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--color-primary);
+}
+
+.form {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fieldLabel {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(195, 198, 212, 0.8);
+}
+
+.input {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(187, 222, 250, 0.6);
+  padding: 12px 0;
+  color: var(--color-on-surface);
+  outline: none;
+}
+
+.actions {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border: 1px solid rgba(141, 144, 157, 1);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+

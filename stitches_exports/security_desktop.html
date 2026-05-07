@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SGS | Security - Uncompromising Protection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&amp;family=Cormorant+Garamond:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#853100",
+                    "on-primary": "#002d6f",
+                    "surface-container": "#002235",
+                    "on-primary-container": "#a1bbff",
+                    "on-surface": "#c9e6ff",
+                    "inverse-on-surface": "#0c344a",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "primary-fixed": "#d9e2ff",
+                    "surface-dim": "#001523",
+                    "on-primary-fixed-variant": "#00429c",
+                    "primary-container": "#0d47a1",
+                    "on-secondary": "#003063",
+                    "background": "#001523",
+                    "inverse-primary": "#2b5bb5",
+                    "outline-variant": "#434652",
+                    "surface-container-lowest": "#00101b",
+                    "on-secondary-container": "#c6d9ff",
+                    "tertiary": "#ffb596",
+                    "on-secondary-fixed": "#001b3d",
+                    "on-error": "#690005",
+                    "surface-bright": "#183c54",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "secondary": "#a9c7ff",
+                    "on-tertiary-container": "#ffa781",
+                    "on-background": "#c9e6ff",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-tertiary": "#581e00",
+                    "on-tertiary-fixed": "#360f00",
+                    "primary": "#b0c6ff",
+                    "outline": "#8d909d",
+                    "surface": "#001523",
+                    "on-error-container": "#ffdad6",
+                    "secondary-container": "#005db7",
+                    "on-secondary-fixed-variant": "#00468c",
+                    "on-primary-fixed": "#001945",
+                    "on-surface-variant": "#c3c6d4",
+                    "inverse-surface": "#c9e6ff",
+                    "surface-variant": "#12384f",
+                    "surface-container-highest": "#12384f",
+                    "surface-tint": "#b0c6ff",
+                    "surface-container-low": "#001e2f",
+                    "secondary-fixed-dim": "#a9c7ff",
+                    "surface-container-high": "#022d43",
+                    "secondary-fixed": "#d6e3ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "section-padding": "120px",
+                    "margin-edge": "64px",
+                    "gutter": "24px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "body-large": ["DM Sans"],
+                    "ui-standard": ["DM Sans"],
+                    "label-eyebrow": ["DM Sans"],
+                    "headline-section": ["Cormorant Garamond"],
+                    "display-hero": ["Cormorant Garamond"]
+            },
+            "fontSize": {
+                    "body-large": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "300"}],
+                    "ui-standard": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "label-eyebrow": ["11px", {"lineHeight": "1.0", "letterSpacing": "0.14em", "fontWeight": "500"}],
+                    "headline-section": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "300"}],
+                    "display-hero": ["84px", {"lineHeight": "0.9", "letterSpacing": "-0.03em", "fontWeight": "100"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #020810;
+            color: #c9e6ff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .technical-grid {
+            background-image: 
+                linear-gradient(rgba(187, 222, 250, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(187, 222, 250, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .scan-line {
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 100px,
+                rgba(187, 222, 250, 0.02) 100px,
+                rgba(187, 222, 250, 0.02) 101px
+            );
+        }
+        .glass-on-void {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(187, 222, 250, 0.1);
+        }
+        .ghost-surface {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(187, 222, 250, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-large">
+<!-- Header / TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/30 backdrop-blur-2xl border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-margin-edge max-w-container-max mx-auto h-20">
+<div class="font-display-hero text-4xl text-primary flex items-center">
+                SGS
+            </div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">HOME</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-primary border-b border-primary transition-colors duration-500" href="#">SERVICES</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">FLEET</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">AVIATION</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">MARINE</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">LOGISTICS</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">ABOUT</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#">CONTACT</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-6 py-3 font-ui-standard uppercase tracking-widest scale-100 active:scale-95 transition-transform">
+                REQUEST SERVICE
+            </button>
+</div>
+</header>
+<main class="relative min-h-screen technical-grid">
+<div class="scan-line absolute inset-0 pointer-events-none"></div>
+<!-- Hero Section -->
+<section class="relative pt-section-padding px-margin-edge max-w-container-max mx-auto flex flex-col items-center text-center">
+<span class="font-label-eyebrow text-label-eyebrow text-secondary uppercase mb-8">Service Vertical: Security</span>
+<h1 class="font-display-hero text-[80px] leading-tight mb-12 max-w-4xl">
+                Security. Uncompromising Protection.
+            </h1>
+<p class="font-body-large text-body-large max-w-2xl text-on-surface-variant mb-16">
+                Strategic defensive solutions designed for the global elite. From sovereign-level asset protection to private VIP transit, we operate at the intersection of precision intelligence and tactical dominance.
+            </p>
+<div class="w-full h-[600px] relative overflow-hidden ghost-surface">
+<img alt="SGS Security Operations" class="w-full h-full object-cover opacity-80" data-alt="A cinematic, high-contrast shot of a sleek, dark armored vehicle parked in a minimalist, dimly lit hangar. The scene is illuminated by thin blue laser-like ceiling lights, reflecting off the vehicle's matte finish. The atmosphere is cold and professional, utilizing the deep space blue and starlight palette to evoke a sense of high-tech security and absolute readiness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb_kBtOd556feM3DeSta8rCF-rEUobTUPKZ7HA9b_9Z0K6Is7Qpksc0kdKWkjKqW3mxYRMgyOYvqubpixIi07QIkvVGAaITJLJcRaJNJL5iPmxrsZG7NDYXgaXmO-uGwpTJEL2XFDEHxJ7BoqLOT4fGGx-usYuXrVjp2tgJTXU6_x2nCbkKcU_h5jGSGu4VRSCRjWmktRaEgYzElIvIAyYoykpbPEoPB34ozj3bE2BM2YWAOAa65n6WonkBQ8mmruPWn5xQKinJ80"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+</div>
+</section>
+<!-- Sub-Services Bento Grid -->
+<section class="py-section-padding px-margin-edge max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-xl">
+<h2 class="font-headline-section text-headline-section mb-6">Tactical Divisions</h2>
+<p class="font-body-large text-on-surface-variant">Our operations are divided into specialized units, each managed by former special operations veterans and intelligence officers.</p>
+</div>
+<div class="h-[1px] flex-grow bg-outline-variant/30 mx-12 hidden md:block"></div>
+<div class="font-label-eyebrow text-label-eyebrow text-secondary uppercase">Global Capability</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Elite Escort Services -->
+<div class="md:col-span-8 group ghost-surface p-12 transition-all duration-500 hover:bg-white/10">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="security">security</span>
+<span class="font-label-eyebrow text-secondary">MODALITY: ARMED/UNARMED</span>
+</div>
+<h3 class="font-headline-section text-4xl mb-6">Elite Escort Services</h3>
+<p class="font-body-large text-on-surface-variant mb-8 max-w-lg">
+                        High-stakes protective details for high-net-worth individuals and corporate delegations in high-risk environments. 
+                    </p>
+<ul class="space-y-4 font-ui-standard text-on-surface mb-12">
+<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-primary"></span> Counter-Surveillance Teams</li>
+<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-primary"></span> Strategic Route Analysis</li>
+<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-primary"></span> 24/7 Threat Monitoring</li>
+</ul>
+<button class="border border-outline-variant px-8 py-4 font-ui-standard uppercase tracking-widest hover:border-primary hover:text-primary transition-all">VIEW PROTOCOL</button>
+</div>
+<!-- VIP Escort Detail -->
+<div class="md:col-span-4 glass-on-void p-12 flex flex-col justify-between group transition-all duration-500">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-12" data-icon="shield_person">shield_person</span>
+<h3 class="font-headline-section text-4xl mb-6">VIP Escort Detail</h3>
+<p class="font-body-large text-on-surface-variant">Discrete personal protection that integrates seamlessly with luxury lifestyles without compromising privacy.</p>
+</div>
+<div class="mt-12 group-hover:translate-x-2 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- High-Value Logistics -->
+<div class="md:col-span-4 glass-on-void p-12 flex flex-col justify-between group transition-all duration-500">
+<div>
+<span class="material-symbols-outlined text-4xl text-primary mb-12" data-icon="lock">lock</span>
+<h3 class="font-headline-section text-4xl mb-6">High-Value Logistics</h3>
+<p class="font-body-large text-on-surface-variant">Secure transport for precious metals, confidential data, and proprietary physical assets globally.</p>
+</div>
+<div class="mt-12 group-hover:translate-x-2 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- Operations Monitoring -->
+<div class="md:col-span-8 relative overflow-hidden h-[400px]">
+<img alt="SGS Command Center" class="w-full h-full object-cover grayscale opacity-40" data-alt="A detailed view of a dark command center with multiple high-definition screens displaying complex global maps, data streams, and thermal imaging. The lighting is low-key, dominated by cold blue and sharp white data visualizations. The aesthetic is ultra-modern and technical, emphasizing a high level of surveillance and command capabilities in a deep space setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVSv-D78A-sxrWzr9oVzKf8JdEt1BBo8c4qD7o3ViiW2FRln95WTwyzjO3mpF9Y-OtWgxVAc4a0nFRL15QNWFD1qOdtSbnWpfgrtsUnLZ0dREHm4qd6rxr8tn9YDni8-dau_90rcfCzubTbjMbd8Zw6ExXtCcCnHs1mZHL4uCuqIUaKRs4S_PyYd9m1n8-ANJNV6wIgtHepcwTnZ5j3fL-Zfqx8Q7l2LZHVxkP4ZpksG3pgN6IAEWrCDz7aRy9eUvfgMajGNz8nZs"/>
+<div class="absolute inset-0 p-12 flex flex-col justify-end bg-gradient-to-t from-background to-transparent">
+<h4 class="font-headline-section text-3xl mb-2">Global Operations Center</h4>
+<p class="font-ui-standard uppercase tracking-widest text-secondary">Active Monitoring: 24/7/365</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Step-by-Step Request Form -->
+<section class="py-section-padding bg-surface-container-lowest border-y border-outline-variant/20">
+<div class="px-margin-edge max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="lg:col-span-4">
+<span class="font-label-eyebrow text-secondary uppercase mb-6 block">Engagement</span>
+<h2 class="font-headline-section text-headline-section mb-8">Initiate Protection Protocol</h2>
+<p class="font-body-large text-on-surface-variant mb-12">Submit your requirements for a confidential threat assessment and operational quote. Our command team will respond within 60 minutes.</p>
+<div class="space-y-8">
+<div class="flex items-center gap-6 opacity-100">
+<span class="w-10 h-10 border border-primary flex items-center justify-center font-ui-standard text-primary">01</span>
+<span class="font-ui-standard uppercase tracking-widest text-primary">Mission Specs</span>
+</div>
+<div class="flex items-center gap-6 opacity-40">
+<span class="w-10 h-10 border border-outline flex items-center justify-center font-ui-standard">02</span>
+<span class="font-ui-standard uppercase tracking-widest">Tactical Detail</span>
+</div>
+<div class="flex items-center gap-6 opacity-40">
+<span class="w-10 h-10 border border-outline flex items-center justify-center font-ui-standard">03</span>
+<span class="font-ui-standard uppercase tracking-widest">Confirmation</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8 ghost-surface p-16">
+<form class="space-y-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Escort Type -->
+<div class="flex flex-col gap-4">
+<label class="font-label-eyebrow text-secondary uppercase">Escort Type</label>
+<select class="bg-transparent border-b border-outline-variant py-4 font-ui-standard text-on-surface focus:border-primary focus:ring-0 outline-none appearance-none">
+<option class="bg-background">ARMED PROTECTION</option>
+<option class="bg-background">UNARMED ESCORT</option>
+<option class="bg-background">TACTICAL LOGISTICS</option>
+<option class="bg-background">VIP TRANSPORT</option>
+</select>
+</div>
+<!-- Security Level -->
+<div class="flex flex-col gap-4">
+<label class="font-label-eyebrow text-secondary uppercase">Security Level</label>
+<div class="flex gap-4">
+<button class="flex-1 py-4 border border-primary text-primary font-ui-standard uppercase tracking-widest" type="button">High-Threat</button>
+<button class="flex-1 py-4 border border-outline-variant text-on-surface-variant font-ui-standard uppercase tracking-widest hover:border-primary/50" type="button">Standard</button>
+</div>
+</div>
+<!-- Personnel Count -->
+<div class="flex flex-col gap-4">
+<label class="font-label-eyebrow text-secondary uppercase">Personnel Count</label>
+<input class="bg-transparent border-b border-outline-variant py-4 font-ui-standard text-on-surface focus:border-primary focus:ring-0 outline-none" placeholder="MIN 2" type="number"/>
+</div>
+<!-- Duration -->
+<div class="flex flex-col gap-4">
+<label class="font-label-eyebrow text-secondary uppercase">Duration (Hours/Days)</label>
+<input class="bg-transparent border-b border-outline-variant py-4 font-ui-standard text-on-surface focus:border-primary focus:ring-0 outline-none" placeholder="ESTIMATED TIMEFRAME" type="text"/>
+</div>
+<!-- Location -->
+<div class="flex flex-col gap-4 md:col-span-2">
+<label class="font-label-eyebrow text-secondary uppercase">Operational Location</label>
+<input class="bg-transparent border-b border-outline-variant py-4 font-ui-standard text-on-surface focus:border-primary focus:ring-0 outline-none" placeholder="CITY, COUNTRY, OR LAT/LONG" type="text"/>
+</div>
+<!-- Nature of Assignment -->
+<div class="flex flex-col gap-4 md:col-span-2">
+<label class="font-label-eyebrow text-secondary uppercase">Nature of Assignment</label>
+<textarea class="bg-transparent border-b border-outline-variant py-4 font-ui-standard text-on-surface focus:border-primary focus:ring-0 outline-none resize-none" placeholder="PROVIDE BRIEF MISSION PARAMETERS" rows="3"></textarea>
+</div>
+</div>
+<div class="flex justify-end pt-8">
+<button class="bg-primary text-on-primary font-ui-standard uppercase tracking-widest px-12 py-5 hover:bg-secondary transition-colors duration-300">
+                                    ACTIVATE PROTOCOL
+                                </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Security Metric Tiers -->
+<section class="py-section-padding px-margin-edge max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<div class="border-l border-outline-variant/30 pl-8">
+<div class="text-6xl font-display-hero text-primary mb-4">99.9%</div>
+<p class="font-label-eyebrow text-secondary uppercase mb-2">Success Rate</p>
+<p class="font-ui-standard text-on-surface-variant">Over 1,400 high-risk operations concluded without incident.</p>
+</div>
+<div class="border-l border-outline-variant/30 pl-8">
+<div class="text-6xl font-display-hero text-primary mb-4">450+</div>
+<p class="font-label-eyebrow text-secondary uppercase mb-2">Active Personnel</p>
+<p class="font-ui-standard text-on-surface-variant">Former SOF and intelligence specialists across 4 continents.</p>
+</div>
+<div class="border-l border-outline-variant/30 pl-8">
+<div class="text-6xl font-display-hero text-primary mb-4">60m</div>
+<p class="font-label-eyebrow text-secondary uppercase mb-2">Rapid Response</p>
+<p class="font-ui-standard text-on-surface-variant">Deployment capabilities within one hour of protocol activation.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="full-width bottom-0 border-t border-outline-variant/20 bg-surface-container-lowest">
+<div class="w-full text-center py-20 opacity-10 font-display-hero text-[120px] uppercase tracking-tighter text-on-surface pointer-events-none">
+            SMART GLOBAL SERVICE
+        </div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-edge py-section-padding max-w-container-max mx-auto">
+<div class="col-span-1 flex flex-col gap-6">
+<h4 class="font-ui-standard font-bold uppercase tracking-widest text-primary">SGS SECURITY</h4>
+<p class="font-ui-standard text-on-surface-variant">Strategic command for a volatile world. Our global network ensures protection where traditional services fail.</p>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<h4 class="font-ui-standard font-bold uppercase tracking-widest text-primary">OPERATIONS</h4>
+<a class="font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1" href="#">GLOBAL NODES</a>
+<a class="font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1" href="#">SECTORS</a>
+<a class="font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1" href="#">FLEET OPERATIONS</a>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<h4 class="font-ui-standard font-bold uppercase tracking-widest text-primary">DIVISIONS</h4>
+<a class="font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1" href="#">AVIATION DIVISION</a>
+<a class="font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1" href="#">MARINE LOGISTICS</a>
+<a class="font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1" href="#">STRATEGIC ADVISORY</a>
+</div>
+<div class="col-span-1 flex flex-col gap-6">
+<h4 class="font-ui-standard font-bold uppercase tracking-widest text-primary">HEADQUARTERS</h4>
+<p class="font-ui-standard text-on-surface-variant">London, UK<br/>Geneva, CH<br/>Singapore, SG</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="language">language</span>
+<span class="material-symbols-outlined text-secondary" data-icon="hub">hub</span>
+</div>
+</div>
+</div>
+<div class="px-margin-edge py-10 border-t border-outline-variant/10 text-center">
+<p class="font-label-eyebrow text-on-surface-variant">© 2024 SMART GLOBAL SERVICE. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+</body></html>

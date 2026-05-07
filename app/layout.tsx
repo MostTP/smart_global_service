@@ -1,29 +1,31 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
-  title: {
-    default: "Smart Global Service | Integrated premium services",
-    template: "%s | Smart Global Service",
-  },
-  description:
-    "Integrated premium services across transportation, logistics, security, procurement, marine, aviation, and investment—coordinated with discretion.",
+  title: "SGS",
+  description: "Smart Global Service",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="flex min-h-full flex-col text-slate-800">
-        <SiteHeader />
-        <div className="flex-1">{children}</div>
-        <SiteFooter />
-      </body>
+    <html lang="en" className="theme-dark">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

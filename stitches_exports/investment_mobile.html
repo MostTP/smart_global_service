@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=DM+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#c9e6ff",
+                    "surface": "#001523",
+                    "error-container": "#93000a",
+                    "on-primary-fixed": "#001945",
+                    "surface-variant": "#12384f",
+                    "on-primary": "#002d6f",
+                    "surface-container-high": "#022d43",
+                    "outline-variant": "#434652",
+                    "on-primary-fixed-variant": "#00429c",
+                    "on-secondary": "#003063",
+                    "outline": "#8d909d",
+                    "secondary-container": "#005db7",
+                    "on-primary-container": "#a1bbff",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "inverse-surface": "#c9e6ff",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-error-container": "#ffdad6",
+                    "surface-dim": "#001523",
+                    "on-tertiary-fixed": "#360f00",
+                    "secondary-fixed-dim": "#a9c7ff",
+                    "surface-tint": "#b0c6ff",
+                    "primary": "#b0c6ff",
+                    "on-secondary-container": "#c6d9ff",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-secondary-fixed-variant": "#00468c",
+                    "on-error": "#690005",
+                    "on-secondary-fixed": "#001b3d",
+                    "surface-container-low": "#001e2f",
+                    "surface-bright": "#183c54",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "secondary": "#a9c7ff",
+                    "tertiary-container": "#853100",
+                    "on-tertiary": "#581e00",
+                    "error": "#ffb4ab",
+                    "on-background": "#c9e6ff",
+                    "inverse-primary": "#2b5bb5",
+                    "tertiary": "#ffb596",
+                    "primary-container": "#0d47a1",
+                    "on-tertiary-container": "#ffa781",
+                    "surface-container": "#002235",
+                    "surface-container-lowest": "#00101b",
+                    "background": "#001523",
+                    "on-surface-variant": "#c3c6d4",
+                    "surface-container-highest": "#12384f",
+                    "inverse-on-surface": "#0c344a",
+                    "primary-fixed": "#d9e2ff",
+                    "secondary-fixed": "#d6e3ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "section-padding": "120px",
+                    "margin-edge": "64px",
+                    "gutter": "24px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "body-large": ["DM Sans"],
+                    "display-hero": ["Cormorant Garamond"],
+                    "headline-section": ["Cormorant Garamond"],
+                    "label-eyebrow": ["DM Sans"],
+                    "ui-standard": ["DM Sans"]
+            },
+            "fontSize": {
+                    "body-large": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "300"}],
+                    "display-hero": ["84px", {"lineHeight": "0.9", "letterSpacing": "-0.03em", "fontWeight": "100"}],
+                    "headline-section": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "300"}],
+                    "label-eyebrow": ["11px", {"lineHeight": "1.0", "letterSpacing": "0.14em", "fontWeight": "500"}],
+                    "ui-standard": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .deep-field-bg {
+            background-image: radial-gradient(circle at center, rgba(187, 222, 251, 0.08) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .sonar-rings {
+            background: radial-gradient(circle, transparent 20%, rgba(187, 222, 251, 0.03) 21%, transparent 21%, transparent 40%, rgba(187, 222, 251, 0.03) 41%, transparent 41%);
+            background-size: 200% 200%;
+            background-position: center;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(187, 222, 251, 0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[rgba(0,21,35,0.03)] backdrop-blur-3xl border-b border-outline-variant/10">
+<div class="flex justify-between items-center w-full px-6 py-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="public">public</span>
+<span class="font-display-hero text-headline-section text-on-surface uppercase tracking-tighter">SGS</span>
+</div>
+<span class="material-symbols-outlined text-on-surface" data-icon="menu">menu</span>
+</div>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-[795px] flex flex-col justify-center px-6 overflow-hidden">
+<div class="absolute inset-0 deep-field-bg -z-10"></div>
+<div class="absolute inset-0 sonar-rings -z-10 scale-150 opacity-50"></div>
+<div class="max-w-xl">
+<p class="font-label-eyebrow text-label-eyebrow text-primary uppercase mb-6 tracking-[0.3em]">Institutional Vertical</p>
+<h1 class="font-display-hero text-[64px] leading-tight text-on-surface mb-8">Investment.<br/>Future<br/>Architecture.</h1>
+<div class="w-12 h-[1px] bg-primary mb-8"></div>
+<p class="font-body-large text-body-large text-on-surface-variant max-w-sm mb-12">
+                    Commanding global capital towards the next generation of logistics and maritime infrastructure. High-conviction deployment in primary markets.
+                </p>
+<button class="bg-primary text-on-primary font-ui-standard px-8 py-4 uppercase tracking-widest transition-transform active:scale-95">
+                    Explore Assets
+                </button>
+</div>
+</section>
+<!-- Portfolio Overview (Bento Style) -->
+<section class="py-section-padding px-6 relative">
+<div class="absolute inset-0 -z-10">
+<div class="h-full w-full opacity-5 bg-[linear-gradient(rgba(187,222,251,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(187,222,251,0.1)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+</div>
+<p class="font-label-eyebrow text-label-eyebrow text-primary uppercase mb-4">Capital Deployment</p>
+<h2 class="font-headline-section text-headline-section text-on-surface mb-12">Portfolio Ecosystem</h2>
+<div class="grid grid-cols-1 gap-6">
+<!-- Large Feature -->
+<div class="glass-panel p-8 flex flex-col gap-6">
+<img class="w-full h-48 object-cover grayscale opacity-60" data-alt="A cinematic, high-contrast aerial photograph of a sprawling modern shipping terminal at dusk. Glowing blue and orange lights define the geometric pathways of automated cranes and stacked containers. The atmosphere is cold, precise, and technologically advanced, mirroring a night-time satellite observation of global infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArFiSY0EtMTeQ9llEeS4zfXXsxf_8_Pn8GcDWHikPFp0ejgecCYlfEf29Q9g_0p4jxGS7JzjixaAXwij9Cj71tT9SAcc_Lx0a64oHKQnjPsT3j5dNsoL2sBCthZGoip8Qllz6lemDsy0UbJrrze94YiQSzLjYer60ah5DnfgzhO9B9P-9Pa37MX6SW7kNxPBI_9L_aHyioG18FosNu4tg2P53ncx3MYPqrN9mnOL_020yze9-kITcCFqtw3hIi1PCp4igUcannn_k"/>
+<div>
+<h3 class="font-display-hero text-headline-section text-on-surface mb-2">Automated Hubs</h3>
+<p class="font-ui-standard text-on-surface-variant">Strategic equity in Tier-1 logistics nodes across the Trans-Pacific corridor.</p>
+</div>
+</div>
+<!-- Secondary Split -->
+<div class="grid grid-cols-2 gap-6">
+<div class="glass-panel p-6 aspect-square flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary" data-icon="speed">speed</span>
+<div>
+<p class="font-display-hero text-[32px] text-primary">14.2%</p>
+<p class="font-label-eyebrow text-label-eyebrow uppercase text-on-surface-variant">Annual Yield</p>
+</div>
+</div>
+<div class="glass-panel p-6 aspect-square flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary" data-icon="public">public</span>
+<div>
+<p class="font-display-hero text-[32px] text-primary">82</p>
+<p class="font-label-eyebrow text-label-eyebrow uppercase text-on-surface-variant">Markets Active</p>
+</div>
+</div>
+</div>
+<div class="glass-panel p-8">
+<h3 class="font-ui-standard text-primary uppercase tracking-widest mb-4">Aviation Equity</h3>
+<p class="font-body-large text-on-surface-variant mb-6">Securing long-term fleet modernizations and sustainable jet fuel infrastructure in emerging Singaporean lanes.</p>
+<div class="w-full bg-surface-variant h-[2px]">
+<div class="bg-primary h-full w-3/4"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Partnership Tiers -->
+<section class="py-section-padding px-6 bg-surface-container-lowest relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 -z-10 sonar-rings"></div>
+<p class="font-label-eyebrow text-label-eyebrow text-primary uppercase mb-4 text-center">Protocol Access</p>
+<h2 class="font-headline-section text-headline-section text-on-surface mb-16 text-center">Partnership Tiers</h2>
+<div class="flex flex-col gap-12">
+<!-- Strategic -->
+<div class="relative border-l-2 border-primary pl-8 py-4">
+<span class="font-display-hero text-[64px] absolute -left-4 -top-8 text-primary/10 select-none">01</span>
+<h3 class="font-display-hero text-[32px] text-primary mb-2 uppercase">Strategic</h3>
+<p class="font-ui-standard text-on-surface-variant mb-4">Board-level governance, priority access to sovereign wealth mandates and direct infrastructure co-investments.</p>
+<ul class="flex flex-col gap-2">
+<li class="flex items-center gap-3 font-label-eyebrow text-on-surface uppercase opacity-70">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span> Direct Ownership
+                        </li>
+<li class="flex items-center gap-3 font-label-eyebrow text-on-surface uppercase opacity-70">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span> Voting Mandates
+                        </li>
+</ul>
+</div>
+<!-- Platinum -->
+<div class="relative border-l-2 border-outline-variant pl-8 py-4 opacity-70">
+<span class="font-display-hero text-[64px] absolute -left-4 -top-8 text-on-surface/5 select-none">02</span>
+<h3 class="font-display-hero text-[32px] text-on-surface mb-2 uppercase">Platinum</h3>
+<p class="font-ui-standard text-on-surface-variant mb-4">Preferred dividend structures and exclusive entry to mid-cap logistics roll-ups across Europe.</p>
+</div>
+<!-- Gold -->
+<div class="relative border-l-2 border-outline-variant pl-8 py-4 opacity-50">
+<span class="font-display-hero text-[64px] absolute -left-4 -top-8 text-on-surface/5 select-none">03</span>
+<h3 class="font-display-hero text-[32px] text-on-surface mb-2 uppercase">Gold</h3>
+<p class="font-ui-standard text-on-surface-variant mb-4">Curated exposure to high-yield marine transportation debt and technical securities.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section / Form -->
+<section class="py-section-padding px-6 relative">
+<div class="glass-panel p-10">
+<p class="font-label-eyebrow text-label-eyebrow text-primary uppercase mb-4">Engagement</p>
+<h2 class="font-headline-section text-headline-section text-on-surface mb-8">Partner with SGS</h2>
+<form class="flex flex-col gap-8">
+<div class="flex flex-col gap-2">
+<label class="font-label-eyebrow text-primary uppercase">Identity</label>
+<input class="bg-transparent border-0 border-b border-outline-variant text-on-surface font-ui-standard py-2 focus:ring-0 focus:border-primary placeholder:text-on-surface/20" placeholder="FULL NAME / ENTITY" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-eyebrow text-primary uppercase">Communique</label>
+<input class="bg-transparent border-0 border-b border-outline-variant text-on-surface font-ui-standard py-2 focus:ring-0 focus:border-primary placeholder:text-on-surface/20" placeholder="SECURE EMAIL" type="email"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-eyebrow text-primary uppercase">Mandate</label>
+<select class="bg-transparent border-0 border-b border-outline-variant text-on-surface font-ui-standard py-2 focus:ring-0 focus:border-primary appearance-none">
+<option class="bg-surface">SELECT INVESTMENT TIER</option>
+<option class="bg-surface">STRATEGIC PARTNERSHIP</option>
+<option class="bg-surface">INSTITUTIONAL ALLOCATION</option>
+</select>
+</div>
+<button class="mt-4 border border-primary text-primary font-ui-standard py-5 uppercase tracking-[0.2em] hover:bg-primary hover:text-on-primary transition-all">
+                        Initiate Protocol
+                    </button>
+</form>
+</div>
+</section>
+</main>
+<!-- NavigationDrawer (Suppressed for landing, but structure available in JSON) -->
+<!-- Footer -->
+<footer class="relative w-full py-section-padding bg-surface-container-lowest border-t border-outline-variant/10 overflow-hidden">
+<div class="max-w-container-max mx-auto px-6 flex flex-col gap-12 text-center">
+<h2 class="font-display-hero text-[64px] text-on-surface uppercase tracking-widest text-center opacity-80">SGS</h2>
+<div class="grid grid-cols-2 gap-8 text-center">
+<div class="flex flex-col gap-2">
+<p class="font-label-eyebrow text-primary uppercase mb-2">Global Nodes</p>
+<p class="font-ui-standard text-on-surface-variant">Lagos</p>
+<p class="font-ui-standard text-on-surface-variant">London</p>
+<p class="font-ui-standard text-on-surface-variant">Dubai</p>
+<p class="font-ui-standard text-on-surface-variant">Singapore</p>
+</div>
+<div class="flex flex-col gap-2">
+<p class="font-label-eyebrow text-primary uppercase mb-2">Sectors</p>
+<p class="font-ui-standard text-on-surface-variant">Marine</p>
+<p class="font-ui-standard text-on-surface-variant">Logistics</p>
+<p class="font-ui-standard text-on-surface-variant">Aviation</p>
+<p class="font-ui-standard text-on-surface-variant">Security</p>
+</div>
+</div>
+<div class="mt-12 flex flex-col items-center gap-6">
+<div class="w-full max-w-[200px] h-[1px] bg-outline-variant/30"></div>
+<p class="font-ui-standard text-[10px] text-on-surface-variant tracking-[0.4em] uppercase">© 2024 SMART GLOBAL SERVICE. ALL RIGHTS RESERVED.</p>
+</div>
+</div>
+</footer>
+<!-- Bottom Navigation (Mobile Requirement) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-surface-container-low backdrop-blur-2xl z-50 px-6 py-4 flex justify-between items-center border-t border-outline-variant/10">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-label-eyebrow text-[9px] uppercase tracking-tighter">Invest</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+<span class="font-label-eyebrow text-[9px] uppercase tracking-tighter">Portals</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="font-label-eyebrow text-[9px] uppercase tracking-tighter">Secure</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-eyebrow text-[9px] uppercase tracking-tighter">Market</span>
+</div>
+</nav>
+</body></html>

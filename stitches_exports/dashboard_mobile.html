@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SGS Global - Customer Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=DM+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#c9e6ff",
+                        "surface": "#001523",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#001945",
+                        "surface-variant": "#12384f",
+                        "on-primary": "#002d6f",
+                        "surface-container-high": "#022d43",
+                        "outline-variant": "#434652",
+                        "on-primary-fixed-variant": "#00429c",
+                        "on-secondary": "#003063",
+                        "outline": "#8d909d",
+                        "secondary-container": "#005db7",
+                        "on-primary-container": "#a1bbff",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "inverse-surface": "#c9e6ff",
+                        "tertiary-fixed": "#ffdbcd",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#001523",
+                        "on-tertiary-fixed": "#360f00",
+                        "secondary-fixed-dim": "#a9c7ff",
+                        "surface-tint": "#b0c6ff",
+                        "primary": "#b0c6ff",
+                        "on-secondary-container": "#c6d9ff",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-secondary-fixed-variant": "#00468c",
+                        "on-error": "#690005",
+                        "on-secondary-fixed": "#001b3d",
+                        "surface-container-low": "#001e2f",
+                        "surface-bright": "#183c54",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "secondary": "#a9c7ff",
+                        "tertiary-container": "#853100",
+                        "on-tertiary": "#581e00",
+                        "error": "#ffb4ab",
+                        "on-background": "#c9e6ff",
+                        "inverse-primary": "#2b5bb5",
+                        "tertiary": "#ffb596",
+                        "primary-container": "#0d47a1",
+                        "on-tertiary-container": "#ffa781",
+                        "surface-container": "#002235",
+                        "surface-container-lowest": "#00101b",
+                        "background": "#001523",
+                        "on-surface-variant": "#c3c6d4",
+                        "surface-container-highest": "#12384f",
+                        "inverse-on-surface": "#0c344a",
+                        "primary-fixed": "#d9e2ff",
+                        "secondary-fixed": "#d6e3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "section-padding": "120px",
+                        "margin-edge": "64px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "body-large": ["DM Sans"],
+                        "display-hero": ["Cormorant Garamond"],
+                        "headline-section": ["Cormorant Garamond"],
+                        "label-eyebrow": ["DM Sans"],
+                        "ui-standard": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "body-large": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "300"}],
+                        "display-hero": ["84px", {"lineHeight": "0.9", "letterSpacing": "-0.03em", "fontWeight": "100"}],
+                        "headline-section": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "300"}],
+                        "label-eyebrow": ["11px", {"lineHeight": "1.0", "letterSpacing": "0.14em", "fontWeight": "500"}],
+                        "ui-standard": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(187, 222, 251, 0.1);
+        }
+        .ghost-panel {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(187, 222, 251, 0.2);
+        }
+        .circuit-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(187, 222, 251, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-ui-standard selection:bg-primary selection:text-surface overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-[rgba(0,21,35,0.03)] backdrop-blur-3xl border-b border-outline/10 px-6 py-6 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="public">public</span>
+<span class="font-display-hero text-headline-section text-on-surface uppercase tracking-tighter">SGS</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="menu">menu</span>
+</div>
+</header>
+<main class="pt-32 pb-32 px-6 min-h-screen circuit-bg">
+<!-- Welcome Section -->
+<section class="mb-12">
+<p class="font-label-eyebrow text-label-eyebrow text-secondary uppercase mb-2">Welcome back</p>
+<h1 class="font-display-hero text-headline-section leading-tight">Commander Chen</h1>
+<p class="font-body-large text-ui-standard text-on-surface-variant opacity-70">Monitor your global asset movements and procurement cycles.</p>
+</section>
+<!-- Quote Inbox Bento -->
+<section class="mb-12">
+<div class="flex justify-between items-end mb-6">
+<h2 class="font-display-hero text-[32px]">Quote Inbox</h2>
+<span class="font-label-eyebrow text-label-eyebrow text-primary">3 PENDING</span>
+</div>
+<div class="grid gap-4">
+<!-- Quote Item 1 -->
+<div class="ghost-panel p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-eyebrow text-label-eyebrow text-tertiary mb-1 uppercase">Aviation &amp; Cargo</p>
+<h3 class="font-headline-section text-[24px]">LX-902 Logistics Path</h3>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="arrow_outward">arrow_outward</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span class="text-xs uppercase tracking-widest">Expires in 14 hours</span>
+</div>
+<div class="border-t border-outline/10 pt-4 flex justify-between items-center">
+<span class="font-display-hero text-2xl text-on-surface">$12,450.00</span>
+<button class="bg-primary text-surface px-6 py-2 text-xs font-bold uppercase tracking-widest">View Quote</button>
+</div>
+</div>
+<!-- Quote Item 2 (Inactive) -->
+<div class="glass-panel p-6 flex flex-col gap-4 opacity-80">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-eyebrow text-label-eyebrow text-secondary mb-1 uppercase">Security Infrastructure</p>
+<h3 class="font-headline-section text-[24px]">Regional Hub Monitoring</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="lock_clock">lock_clock</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="history">history</span>
+<span class="text-xs uppercase tracking-widest">Awaiting Verification</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Booking History Section -->
+<section class="mb-12">
+<h2 class="font-display-hero text-[32px] mb-6">Booking History</h2>
+<div class="space-y-4">
+<!-- Status Item -->
+<div class="glass-panel px-6 py-4 flex items-center justify-between border-l-2 border-primary">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<p class="text-sm font-medium">Global Transit #SG-882</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">In Transit - Lagos Port</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="glass-panel px-6 py-4 flex items-center justify-between border-l-2 border-secondary">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="payments">payments</span>
+</div>
+<div>
+<p class="text-sm font-medium">Procurement #PR-102</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Completed - June 12</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="glass-panel px-6 py-4 flex items-center justify-between border-l-2 border-outline">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-outline/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="sailing">sailing</span>
+</div>
+<div>
+<p class="text-sm font-medium">Marine Survey #MS-441</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Cancelled</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Quotation Detail Card (Overlay Style) -->
+<section class="mb-12">
+<div class="ghost-panel p-8 border-t-2 border-primary">
+<div class="flex justify-between items-start mb-8">
+<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+<p class="font-label-eyebrow text-label-eyebrow text-on-surface-variant uppercase">REF: QUO-4922-A</p>
+</div>
+<h2 class="font-display-hero text-headline-section mb-6">Marine Logistics Detail</h2>
+<div class="space-y-6">
+<div class="flex justify-between items-center border-b border-outline/10 pb-4">
+<span class="text-on-surface-variant text-sm uppercase tracking-widest">Cargo Weighting</span>
+<span class="font-ui-standard font-bold">$2,400</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline/10 pb-4">
+<span class="text-on-surface-variant text-sm uppercase tracking-widest">Berth Allocation</span>
+<span class="font-ui-standard font-bold">$4,850</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline/10 pb-4">
+<span class="text-on-surface-variant text-sm uppercase tracking-widest">Security Escort</span>
+<span class="font-ui-standard font-bold">$1,200</span>
+</div>
+<div class="flex justify-between items-center pt-4">
+<span class="text-on-surface font-bold text-lg uppercase tracking-tighter">Total Payable</span>
+<span class="font-display-hero text-4xl text-primary">$8,450.00</span>
+</div>
+</div>
+<div class="mt-10 grid grid-cols-2 gap-4">
+<button class="border border-outline text-on-surface py-4 text-xs font-bold uppercase tracking-widest">Decline</button>
+<button class="bg-primary text-surface py-4 text-xs font-bold uppercase tracking-widest">Accept Quote</button>
+</div>
+</div>
+</section>
+<!-- Visual Element -->
+<div class="relative w-full h-[240px] mb-12 overflow-hidden border border-outline/20">
+<img alt="Infrastructure View" class="w-full h-full object-cover grayscale opacity-40 mix-blend-screen" data-alt="A cinematic night view of a highly sophisticated global logistics port with glowing orange terminal lights against a deep navy sky. Sleek modern ships are docked beside geometric steel structures. The lighting is low-key with high-contrast glints on dark water, creating a professional and secure cinematic atmosphere consistent with a luxury editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTQn3ww2IrRl7lwymQHkhueWQ82O7axXKvkH3wo_0kGCjGOuZUf37O8oMuqi7Zx4MpVQtnkvV-6rAZIakvs-7a2nZr_jnmUlmNVenUBOq-VsOmjyrtlGZlyi9vZ64P6BIaquCFhaolHWfj_wj0GJvDQ431pMJTKqeT0Tzpn3BYhC-7WLfPYt0Lb3qE9ofMoqxqHljpjjSIJe2Ehf_FtejzqD4nDUZjLrzuPeW4s6mBeFRppbI8W9Y_Sjbtnc4e0PGIWHp_W0yasyY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<p class="font-label-eyebrow text-primary uppercase">Global Infrastructure</p>
+<p class="font-display-hero text-2xl">Singapore Terminal V4</p>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface-container-lowest border-t border-outline/10 px-8 py-4 flex justify-between items-center md:hidden">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Fleet</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Quotes</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Profile</span>
+</div>
+</nav>
+<!-- Contextual FAB -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-secondary text-surface flex items-center justify-center shadow-2xl z-[55]">
+<span class="material-symbols-outlined" data-icon="support_agent" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+</button>
+<!-- Global Footer -->
+<footer class="relative w-full py-section-padding border-t border-starlight/10 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-edge flex flex-col gap-gutter">
+<span class="font-display-hero text-[64px] text-on-surface uppercase tracking-widest text-center opacity-10">SGS GLOBAL</span>
+<div class="flex flex-wrap justify-center gap-8 text-on-surface-variant">
+<span class="font-ui-standard text-xs tracking-widest hover:text-primary transition-colors">LAGOS</span>
+<span class="font-ui-standard text-xs tracking-widest hover:text-primary transition-colors">LONDON</span>
+<span class="font-ui-standard text-xs tracking-widest hover:text-primary transition-colors">DUBAI</span>
+<span class="font-ui-standard text-xs tracking-widest hover:text-primary transition-colors">SINGAPORE</span>
+</div>
+<p class="text-center font-ui-standard text-[10px] text-on-surface-variant opacity-50 mt-8">© 2024 SMART GLOBAL SERVICE. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+</body></html>

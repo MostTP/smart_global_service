@@ -1,0 +1,254 @@
+.services {
+  padding: var(--section-padding) 0;
+  background: var(--color-surface-lowest);
+  background-image:
+    linear-gradient(90deg, rgba(187, 222, 251, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(187, 222, 251, 0.03) 1px, transparent 1px);
+  background-size: 100px 100px;
+}
+
+.servicesInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 24px;
+}
+
+.serviceListHead {
+  margin-bottom: 80px;
+}
+
+.coreEyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #a9c7ff;
+}
+
+.coreTitle {
+  margin: 16px 0 0;
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 300;
+  font-optical-sizing: auto;
+}
+
+.dividerList {
+  border-top: 1px solid rgba(67, 70, 82, 0.3);
+}
+
+.serviceRow {
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(67, 70, 82, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 100%;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  transition: color 200ms ease, background 200ms ease;
+}
+
+.serviceRow:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.serviceRowLeft {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.serviceIndex {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: rgba(67, 70, 82, 1);
+  transition: color 250ms ease;
+  font-optical-sizing: auto;
+}
+
+.serviceRowTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 300;
+  transition: transform 250ms ease, color 250ms ease;
+  font-optical-sizing: auto;
+  color: rgba(195, 198, 212, 0.65);
+}
+
+.arrow {
+  color: rgba(67, 70, 82, 1);
+  transition: color 250ms ease;
+}
+
+.serviceRow:hover:not(.serviceRowActive) .serviceIndex,
+.serviceRow:hover:not(.serviceRowActive) .arrow {
+  color: var(--color-primary);
+}
+
+.serviceRow:hover:not(.serviceRowActive) .serviceRowTitle {
+  transform: translateX(16px);
+  color: rgba(201, 230, 255, 0.88);
+}
+
+.serviceRowActive .serviceIndex {
+  color: var(--color-on-surface);
+}
+
+.serviceRowActive .serviceRowTitle {
+  color: var(--color-on-surface);
+  transform: translateX(8px);
+}
+
+.serviceRowActive .arrow {
+  color: var(--color-primary);
+}
+
+.preview {
+  position: sticky;
+  top: 160px;
+  height: 600px;
+}
+
+.previewCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.previewImg {
+  object-fit: cover;
+}
+
+.previewOverlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 48px;
+  background: linear-gradient(to top, var(--color-surface), transparent);
+}
+
+.focus {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.previewTitle {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 300;
+  font-optical-sizing: auto;
+}
+
+.previewBody {
+  margin: 0;
+  max-width: 720px;
+  color: var(--color-on-surface-variant);
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  display: flex;
+  gap: 4px;
+}
+
+.progressSeg {
+  height: 100%;
+  flex: 1;
+  min-width: 0;
+  background: rgba(67, 70, 82, 0.3);
+  transition: background 220ms ease, box-shadow 220ms ease;
+}
+
+.progressSegActive {
+  background: var(--color-primary);
+  box-shadow: 0 0 12px rgba(176, 198, 255, 0.35);
+}
+
+@media (max-width: 1024px) {
+  .servicesInner {
+    grid-template-columns: 1fr;
+    padding: 0 24px;
+  }
+
+  .preview {
+    position: relative;
+    top: 0;
+    height: 420px;
+  }
+
+  .serviceListHead {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 680px) {
+  .services {
+    padding: calc(var(--section-padding) * 0.72) 0;
+  }
+
+  .servicesInner {
+    padding: 0 clamp(16px, 4vw, 24px);
+  }
+
+  .coreTitle {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .serviceRow {
+    padding: 20px 0;
+  }
+
+  .serviceRowLeft {
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .serviceIndex {
+    font-size: 18px;
+  }
+
+  .serviceRowTitle {
+    font-size: clamp(20px, 5.5vw, 28px);
+  }
+
+  .preview {
+    height: min(52dvh, 320px);
+  }
+
+  .previewOverlay {
+    padding: 20px clamp(16px, 4vw, 32px);
+  }
+
+  .previewTitle {
+    font-size: clamp(22px, 6vw, 30px);
+  }
+
+  .previewBody {
+    font-size: 15px;
+  }
+}

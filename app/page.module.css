@@ -1,0 +1,251 @@
+.main {
+  position: relative;
+}
+
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 96px 24px 0;
+  overflow: hidden;
+}
+
+.heroGridAccents {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.heroTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 300;
+  color: var(--color-on-surface);
+}
+
+.heroBody {
+  margin: 0;
+  max-width: 320px;
+  margin-left: 16px;
+  padding-left: 24px;
+  border-left: 1px solid rgba(176, 198, 255, 0.2);
+  color: var(--color-on-surface-variant);
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.heroCtas {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 24px;
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  background: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  border-radius: 0;
+  transition: background 160ms ease;
+}
+
+.primaryCta:hover {
+  background: var(--color-secondary-container);
+}
+
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border: 1px solid rgba(176, 198, 255, 0.4);
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  border-radius: 0;
+  transition: border-color 160ms ease;
+}
+
+.secondaryCta:hover {
+  border-color: var(--color-primary);
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 96px;
+  background: linear-gradient(to bottom, var(--color-primary), transparent);
+}
+
+.statsStrip {
+  background: var(--color-surface-lowest);
+  padding: 48px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.statsScroller {
+  overflow-x: auto;
+  padding: 0 24px;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.statsScroller::-webkit-scrollbar {
+  display: none;
+}
+
+.statsRow {
+  display: inline-flex;
+  gap: 96px;
+  align-items: center;
+}
+
+.stat {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 1.1;
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+  font-weight: 300;
+}
+
+.statLabel {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+}
+
+.editorialList {
+  padding: var(--section-padding) 24px;
+  background: var(--color-surface-container);
+}
+
+.editorialHeader {
+  margin-bottom: 64px;
+}
+
+.editorialTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 300;
+  color: var(--color-on-surface);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.serviceCard {
+  padding: 24px;
+  border-left: 4px solid transparent;
+}
+
+.serviceCardActive {
+  border-left-color: var(--color-primary);
+}
+
+.serviceCardRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.serviceCardLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.serviceIcon {
+  color: var(--color-primary);
+}
+
+.serviceTitle {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--color-on-surface);
+}
+
+.addIcon {
+  color: var(--color-on-surface-variant);
+}
+
+.addIconActive {
+  color: var(--color-primary);
+}
+
+.serviceDescription {
+  margin-top: 16px;
+  color: var(--color-on-surface-variant);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.anchor {
+  position: relative;
+  height: 530px;
+  overflow: hidden;
+}
+
+.anchorImage {
+  object-fit: cover;
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+.anchorGradTop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--color-surface), transparent);
+}
+
+.anchorGradBottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--color-surface), transparent);
+}
+

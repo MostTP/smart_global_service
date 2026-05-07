@@ -1,0 +1,241 @@
+<html class="dark"><head>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=DM+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#ffdad6",
+                    "surface-container-lowest": "#00101b",
+                    "outline": "#8d909d",
+                    "tertiary-container": "#853100",
+                    "on-surface": "#c9e6ff",
+                    "surface-tint": "#b0c6ff",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "tertiary": "#ffb596",
+                    "surface-container-low": "#001e2f",
+                    "on-background": "#c9e6ff",
+                    "primary": "#b0c6ff",
+                    "on-tertiary": "#581e00",
+                    "surface-bright": "#183c54",
+                    "background": "#001523",
+                    "secondary": "#a9c7ff",
+                    "on-tertiary-container": "#ffa781",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "secondary-fixed-dim": "#a9c7ff",
+                    "on-primary": "#002d6f",
+                    "on-error": "#690005",
+                    "inverse-primary": "#2b5bb5",
+                    "surface-variant": "#12384f",
+                    "on-secondary-fixed-variant": "#00468c",
+                    "tertiary-fixed": "#ffdbcd",
+                    "inverse-surface": "#c9e6ff",
+                    "on-secondary-container": "#c6d9ff",
+                    "on-secondary-fixed": "#001b3d",
+                    "surface-container-high": "#022d43",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-primary-fixed-variant": "#00429c",
+                    "error-container": "#93000a",
+                    "primary-fixed": "#d9e2ff",
+                    "outline-variant": "#434652",
+                    "surface-container": "#002235",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "on-surface-variant": "#c3c6d4",
+                    "secondary-container": "#005db7",
+                    "secondary-fixed": "#d6e3ff",
+                    "on-secondary": "#003063",
+                    "surface": "#001523",
+                    "primary-container": "#0d47a1",
+                    "on-primary-fixed": "#001945",
+                    "surface-container-highest": "#12384f",
+                    "surface-dim": "#001523",
+                    "error": "#ffb4ab",
+                    "inverse-on-surface": "#0c344a",
+                    "on-primary-container": "#a1bbff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-padding": "120px",
+                    "gutter": "24px",
+                    "unit": "4px",
+                    "margin-edge": "64px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "headline-section": ["Cormorant Garamond"],
+                    "display-hero": ["Cormorant Garamond"],
+                    "body-large": ["DM Sans"],
+                    "ui-standard": ["DM Sans"],
+                    "label-eyebrow": ["DM Sans"]
+            },
+            "fontSize": {
+                    "headline-section": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "300"}],
+                    "display-hero": ["84px", {"lineHeight": "0.9", "letterSpacing": "-0.03em", "fontWeight": "100"}],
+                    "body-large": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "300"}],
+                    "ui-standard": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "label-eyebrow": ["11px", {"lineHeight": "1.0", "letterSpacing": "0.14em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .deep-field-bg {
+            background-image: radial-gradient(circle at 50% 50%, rgba(187, 222, 251, 0.08) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .sonar-ring {
+            position: absolute;
+            border: 1px solid rgba(187, 222, 251, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(187, 222, 251, 0.1);
+        }
+        .technical-input {
+            border: none;
+            border-bottom: 1px solid #BBDEFB;
+            background: transparent;
+            padding: 12px 0;
+            border-radius: 0 !important;
+        }
+        .technical-input:focus {
+            outline: none;
+            border-bottom: 1px solid #b0c6ff;
+            ring: 0;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-ui-standard selection:bg-primary/30 min-h-screen relative overflow-x-hidden">
+<!-- Deep Field Background System -->
+<div class="fixed inset-0 deep-field-bg z-0"></div>
+<div class="sonar-ring w-[600px] h-[600px] -top-40 -left-40"></div>
+<div class="sonar-ring w-[900px] h-[900px] -top-80 -left-80"></div>
+<!-- Top Navigation Shell (Contextual) -->
+<nav class="fixed top-0 w-full z-50 bg-[rgba(0,21,35,0.03)] backdrop-blur-3xl border-b border-white/5 flex justify-between items-center px-6 py-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">public</span>
+<span class="font-display-hero text-headline-section text-on-surface uppercase tracking-tighter">SGS</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">menu</span>
+</nav>
+<!-- Main Content Canvas -->
+<main class="relative z-10 pt-32 pb-section-padding px-6 max-w-lg mx-auto">
+<!-- Header Section -->
+<header class="mb-12">
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase block mb-2">Transaction Gateway</span>
+<h1 class="font-display-hero text-headline-section text-on-surface">Secure Payment</h1>
+</header>
+<!-- Service Quote Breakdown -->
+<section class="glass-panel p-8 mb-8">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="font-label-eyebrow text-label-eyebrow text-secondary uppercase block mb-1">Approved Quote</span>
+<h2 class="font-body-large text-body-large text-on-surface">Aviation | Heavy Jet Charter</h2>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">flight_takeoff</span>
+</div>
+<div class="border-t border-white/10 pt-6 mb-2">
+<span class="font-label-eyebrow text-label-eyebrow text-on-surface-variant uppercase block mb-2">Authorized Amount</span>
+<div class="font-display-hero text-[56px] text-primary leading-none">$12,450.00</div>
+</div>
+<div class="flex gap-4 mt-6">
+<div class="flex items-center gap-2 bg-surface-container-highest px-3 py-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">lock</span>
+<span class="font-label-eyebrow text-[10px] text-on-surface uppercase">Encrypted</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-highest px-3 py-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+<span class="font-label-eyebrow text-[10px] text-on-surface uppercase">Instant Confirmation</span>
+</div>
+</div>
+</section>
+<!-- Payment Method Tabs -->
+<div class="flex flex-col gap-8">
+<div class="grid grid-cols-3 gap-2">
+<button class="flex flex-col items-center justify-center py-4 border border-primary text-primary transition-colors">
+<span class="material-symbols-outlined mb-2">credit_card</span>
+<span class="font-label-eyebrow text-[10px] uppercase">Card</span>
+</button>
+<button class="flex flex-col items-center justify-center py-4 border border-white/10 text-on-surface-variant opacity-50 hover:opacity-100 transition-all">
+<span class="material-symbols-outlined mb-2">account_balance</span>
+<span class="font-label-eyebrow text-[10px] uppercase">Transfer</span>
+</button>
+<button class="flex flex-col items-center justify-center py-4 border border-white/10 text-on-surface-variant opacity-50 hover:opacity-100 transition-all">
+<span class="material-symbols-outlined mb-2">payments</span>
+<span class="font-label-eyebrow text-[10px] uppercase">SGS Credit</span>
+</button>
+</div>
+<!-- Technical Form -->
+<form class="flex flex-col gap-8">
+<div class="relative flex flex-col">
+<label class="font-label-eyebrow text-label-eyebrow text-secondary uppercase mb-1">Cardholder Name</label>
+<input class="technical-input font-ui-standard text-on-surface text-lg" type="text" value="ALEXANDER VANCE"/>
+</div>
+<div class="relative flex flex-col">
+<label class="font-label-eyebrow text-label-eyebrow text-secondary uppercase mb-1">Card Number</label>
+<div class="relative">
+<input class="technical-input font-ui-standard text-on-surface text-lg w-full" placeholder="**** **** **** 8892" type="text"/>
+<div class="absolute right-0 top-3 flex gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">visibility_off</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<div class="relative flex flex-col">
+<label class="font-label-eyebrow text-label-eyebrow text-secondary uppercase mb-1">Expiry</label>
+<input class="technical-input font-ui-standard text-on-surface text-lg" placeholder="MM / YY" type="text"/>
+</div>
+<div class="relative flex flex-col">
+<label class="font-label-eyebrow text-label-eyebrow text-secondary uppercase mb-1">CVC</label>
+<input class="technical-input font-ui-standard text-on-surface text-lg" placeholder="***" type="password"/>
+</div>
+</div>
+<!-- CTA -->
+<div class="mt-8">
+<button class="w-full bg-primary-container text-on-primary-container font-ui-standard font-bold text-sm tracking-[0.2em] py-6 px-12 transition-all active:scale-[0.98] hover:bg-secondary-container">
+                        AUTHORIZE TRANSACTION
+                    </button>
+<p class="text-center mt-6 font-label-eyebrow text-[10px] text-on-surface-variant uppercase tracking-widest opacity-40">
+                        Funds will be held in escrow until mission completion
+                    </p>
+</div>
+</form>
+</div>
+</main>
+<!-- Contextual Footer -->
+<footer class="relative z-10 border-t border-white/5 bg-surface-container-lowest py-12 mt-12">
+<div class="px-6 flex flex-col items-center gap-6">
+<span class="font-display-hero text-headline-section text-on-surface opacity-20 uppercase tracking-[0.4em]">SGS GLOBAL</span>
+<div class="flex gap-8">
+<a class="font-label-eyebrow text-[10px] text-on-surface-variant uppercase hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="font-label-eyebrow text-[10px] text-on-surface-variant uppercase hover:text-primary transition-colors" href="#">Terms</a>
+<a class="font-label-eyebrow text-[10px] text-on-surface-variant uppercase hover:text-primary transition-colors" href="#">Support</a>
+</div>
+<p class="font-label-eyebrow text-[9px] text-on-surface-variant opacity-30 text-center">
+                © 2024 SMART GLOBAL SERVICE. ALL RIGHTS RESERVED.
+            </p>
+</div>
+</footer>
+</body></html>

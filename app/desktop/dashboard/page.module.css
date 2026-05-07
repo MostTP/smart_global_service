@@ -1,0 +1,219 @@
+.shell {
+  min-height: 100vh;
+  color: var(--color-on-surface);
+  background: radial-gradient(1200px 600px at 25% 15%, rgba(176, 198, 255, 0.16), transparent 60%),
+    radial-gradient(900px 500px at 85% 60%, rgba(0, 93, 183, 0.22), transparent 55%),
+    linear-gradient(180deg, var(--color-surface-lowest), var(--color-surface));
+}
+
+.deepFieldBg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.7;
+  background-image:
+    linear-gradient(to bottom, rgba(187, 222, 251, 0.08) 1px, transparent 1px),
+    linear-gradient(to right, rgba(187, 222, 251, 0.08) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 30% 10%, black 10%, transparent 62%);
+}
+
+.rings {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background:
+    radial-gradient(circle at 30% 35%, rgba(187, 222, 251, 0.18) 0 1px, transparent 2px) 0 0 / 140px 140px,
+    radial-gradient(circle at 65% 70%, rgba(187, 222, 251, 0.12) 0 1px, transparent 2px) 0 0 / 180px 180px;
+}
+
+.frame {
+  width: min(var(--container-max), calc(100% - 80px));
+  margin: 0 auto;
+  padding: 52px 0 80px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 32px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sideInner {
+  padding: 22px;
+  border-radius: var(--radius-xl);
+  background: rgba(0, 22, 35, 0.72);
+  border: 1px solid rgba(187, 222, 251, 0.12);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+}
+
+.sideEyebrow {
+  display: block;
+  font: 600 11px/1.2 var(--font-body);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(201, 230, 255, 0.72);
+  margin-bottom: 14px;
+}
+
+.sideNav {
+  display: grid;
+  gap: 10px;
+}
+
+.sideLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  color: rgba(201, 230, 255, 0.86);
+  text-decoration: none;
+  border: 1px solid transparent;
+  background: rgba(0, 30, 47, 0.22);
+}
+
+.sideLink:hover {
+  background: rgba(0, 30, 47, 0.4);
+}
+
+.sideActive {
+  background: rgba(18, 56, 79, 0.55);
+  border-color: rgba(176, 198, 255, 0.25);
+  color: var(--color-on-surface);
+}
+
+.dot {
+  margin-left: auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: rgba(176, 198, 255, 0.9);
+  box-shadow: 0 0 0 4px rgba(176, 198, 255, 0.12);
+}
+
+.profile {
+  margin-top: auto;
+}
+
+.profileCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--radius-xl);
+}
+
+.profileImg {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(187, 222, 251, 0.2);
+}
+
+.profileImgEl {
+  object-fit: cover;
+}
+
+.profileRole {
+  display: block;
+  font: 600 11px/1.2 var(--font-body);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(201, 230, 255, 0.7);
+}
+
+.profileUser {
+  display: block;
+  font: 700 14px/1.2 var(--font-body);
+  letter-spacing: 0.08em;
+}
+
+.main {
+  padding: 22px 0;
+}
+
+.header {
+  margin-bottom: 22px;
+}
+
+.h1 {
+  font: 600 34px/1.1 var(--font-display);
+  letter-spacing: 0.02em;
+  margin: 0 0 8px;
+}
+
+.sub {
+  margin: 0;
+  max-width: 70ch;
+  color: rgba(201, 230, 255, 0.72);
+}
+
+.cards {
+  display: grid;
+  gap: 14px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 18px;
+  border-radius: var(--radius-xl);
+}
+
+.cardLeft {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(18, 56, 79, 0.6);
+  border: 1px solid rgba(187, 222, 251, 0.16);
+}
+
+.cardTitle {
+  margin: 0;
+  font: 700 14px/1.2 var(--font-body);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cardMeta {
+  margin: 6px 0 0;
+  color: rgba(201, 230, 255, 0.7);
+  font: 500 13px/1.2 var(--font-body);
+}
+
+.chev {
+  opacity: 0.7;
+}
+
+@media (max-width: 1100px) {
+  .frame {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: relative;
+    height: auto;
+  }
+}
+

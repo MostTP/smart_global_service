@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SGS | MARINE - Absolute Depth</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&amp;family=Cormorant+Garamond:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#853100",
+                    "on-primary": "#002d6f",
+                    "surface-container": "#002235",
+                    "on-primary-container": "#a1bbff",
+                    "on-surface": "#c9e6ff",
+                    "inverse-on-surface": "#0c344a",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "primary-fixed": "#d9e2ff",
+                    "surface-dim": "#001523",
+                    "on-primary-fixed-variant": "#00429c",
+                    "primary-container": "#0d47a1",
+                    "on-secondary": "#003063",
+                    "background": "#001523",
+                    "inverse-primary": "#2b5bb5",
+                    "outline-variant": "#434652",
+                    "surface-container-lowest": "#00101b",
+                    "on-secondary-container": "#c6d9ff",
+                    "tertiary": "#ffb596",
+                    "on-secondary-fixed": "#001b3d",
+                    "on-error": "#690005",
+                    "surface-bright": "#183c54",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "secondary": "#a9c7ff",
+                    "on-tertiary-container": "#ffa781",
+                    "on-background": "#c9e6ff",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-tertiary": "#581e00",
+                    "on-tertiary-fixed": "#360f00",
+                    "primary": "#b0c6ff",
+                    "outline": "#8d909d",
+                    "surface": "#001523",
+                    "on-error-container": "#ffdad6",
+                    "secondary-container": "#005db7",
+                    "on-secondary-fixed-variant": "#00468c",
+                    "on-primary-fixed": "#001945",
+                    "on-surface-variant": "#c3c6d4",
+                    "inverse-surface": "#c9e6ff",
+                    "surface-variant": "#12384f",
+                    "surface-container-highest": "#12384f",
+                    "surface-tint": "#b0c6ff",
+                    "surface-container-low": "#001e2f",
+                    "secondary-fixed-dim": "#a9c7ff",
+                    "surface-container-high": "#022d43",
+                    "secondary-fixed": "#d6e3ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "section-padding": "120px",
+                    "margin-edge": "64px",
+                    "gutter": "24px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "body-large": ["DM Sans"],
+                    "ui-standard": ["DM Sans"],
+                    "label-eyebrow": ["DM Sans"],
+                    "headline-section": ["Cormorant Garamond"],
+                    "display-hero": ["Cormorant Garamond"]
+            },
+            "fontSize": {
+                    "body-large": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "300"}],
+                    "ui-standard": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "label-eyebrow": ["11px", {"lineHeight": "1.0", "letterSpacing": "0.14em", "fontWeight": "500"}],
+                    "headline-section": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "300"}],
+                    "display-hero": ["80px", {"lineHeight": "0.9", "letterSpacing": "-0.03em", "fontWeight": "100"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .depth-chart-bg {
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(187, 222, 251, 0.05) 50px);
+            background-size: 100% 50px;
+        }
+        .depth-chart-overlay {
+            background: linear-gradient(180deg, rgba(2, 8, 16, 0) 0%, rgba(2, 8, 16, 0.8) 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(187, 222, 251, 0.1);
+        }
+        .ghost-rule {
+            border-bottom: 1px solid rgba(187, 222, 251, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-large selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Shell -->
+<nav class="bg-surface/30 backdrop-blur-2xl dark:bg-surface-dim/30 font-ui-standard text-ui-standard uppercase tracking-widest docked full-width top-0 sticky border-b border-outline-variant/30 z-50">
+<div class="flex justify-between items-center w-full px-margin-edge max-w-container-max mx-auto h-20">
+<div class="font-display-hero text-display-hero text-primary dark:text-primary-fixed-dim text-[32px] leading-none">SGS</div>
+<div class="hidden md:flex gap-10 items-center">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">HOME</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">SERVICES</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">FLEET</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">AVIATION</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b border-primary py-1" href="#">MARINE</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">LOGISTICS</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">ABOUT</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">CONTACT</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 text-ui-standard tracking-widest hover:bg-secondary transition-all duration-300">REQUEST SERVICE</button>
+</div>
+</nav>
+<main class="relative">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center overflow-hidden depth-chart-bg">
+<div class="absolute inset-0 depth-chart-overlay"></div>
+<div class="px-margin-edge max-w-container-max mx-auto w-full relative z-10">
+<div class="max-w-4xl">
+<span class="font-label-eyebrow text-label-eyebrow text-secondary uppercase block mb-6 tracking-[0.3em]">Sector 04 // Maritime Operations</span>
+<h1 class="font-display-hero text-display-hero text-on-surface mb-8">Marine. Absolute Depth.</h1>
+<p class="font-body-large text-body-large text-on-surface-variant max-w-2xl">Precision navigation across the world's most demanding waters. From luxury yacht charters to high-capacity commercial logistics, SGS Marine delivers unwavering reliability on every horizon.</p>
+</div>
+</div>
+<!-- Atmospheric SVG Decorative Lines -->
+<svg class="absolute bottom-0 left-0 w-full opacity-20 pointer-events-none h-64" preserveaspectratio="none" viewbox="0 0 1440 200">
+<path d="M0 100 C 300 150, 600 50, 900 120 C 1200 190, 1440 100, 1440 100 V 200 H 0 Z" fill="rgba(187, 222, 251, 0.05)"></path>
+<line stroke="#BBDEFB" stroke-width="0.5" x1="0" x2="1440" y1="50" y2="50"></line>
+<line stroke="#BBDEFB" stroke-width="0.5" x1="0" x2="1440" y1="100" y2="100"></line>
+<line stroke="#BBDEFB" stroke-width="0.5" x1="0" x2="1440" y1="150" y2="150"></line>
+</svg>
+</section>
+<!-- Sub-Services Bento Grid -->
+<section class="py-section-padding bg-surface-container-lowest relative">
+<div class="px-margin-edge max-w-container-max mx-auto">
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Service 01: Boat Cruises -->
+<div class="col-span-12 lg:col-span-7 glass-panel p-12 flex flex-col justify-between group">
+<div>
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase block mb-4">Vertical A</span>
+<h2 class="font-headline-section text-headline-section mb-6">Boat Cruises &amp; Yacht Charter</h2>
+<p class="text-on-surface-variant mb-12 max-w-lg">Bespoke maritime experiences tailored for high-stakes corporate hosting and elite leisure. Our fleet ranges from sleek day-cruisers to monumental luxury yachts.</p>
+</div>
+<div class="grid grid-cols-3 gap-gutter mt-auto">
+<div class="ghost-rule pb-4">
+<span class="font-label-eyebrow text-primary block uppercase mb-2">Leisure</span>
+<p class="text-sm opacity-60">Personal Journeys</p>
+</div>
+<div class="ghost-rule pb-4">
+<span class="font-label-eyebrow text-primary block uppercase mb-2">Corporate</span>
+<p class="text-sm opacity-60">Executive Hosting</p>
+</div>
+<div class="ghost-rule pb-4">
+<span class="font-label-eyebrow text-primary block uppercase mb-2">VIP</span>
+<p class="text-sm opacity-60">Ultimate Privacy</p>
+</div>
+</div>
+<div class="mt-12 h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-700" data-alt="A sleek white luxury motor yacht cutting through dark deep blue ocean water at high speed. The lighting is dramatic and cinematic, capturing the reflection of the sunset on the water. The overall aesthetic is high-end, modern, and powerful, aligning with a luxury corporate marine brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDND1umrQnQ6rGUStJxAmHR0oYIZ1fAdchmJH0vEvJz-6-DVlCy1Oq7HGljTBy1ErGAOZAnJE0YuS6PgexLnMh13SEG4VQkB3WEH-BCCgoA1u5HVYPVKL1qKDKRe6LNVfjQSroSecr6iAU9SXkKQvN8knhFTorAPaVwHpm0dTQmUr2O5cneT2dT69uNSq7LmWKAL2keWD9CTvwYoSZCP3l_4Uvr9u6ebbZ9DgdclsPQGBOxyskZEjHFNTEryhD1oA9C8KCXUQ-Hl24"/>
+</div>
+</div>
+<!-- Service 02: Fleet Logistics -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-gutter">
+<div class="glass-panel p-12 flex-1">
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase block mb-4">Vertical B</span>
+<h2 class="font-headline-section text-headline-section mb-6">Fleet Logistics</h2>
+<p class="text-on-surface-variant">Strategic commercial maritime transport specializing in global node-to-node connectivity and heavy cargo operations.</p>
+<div class="mt-8 flex flex-col gap-4">
+<div class="flex items-center gap-4 text-ui-standard uppercase tracking-widest text-primary">
+<span class="material-symbols-outlined text-[18px]">anchor</span>
+<span>Port Management</span>
+</div>
+<div class="flex items-center gap-4 text-ui-standard uppercase tracking-widest text-primary">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+<span>Route Optimization</span>
+</div>
+</div>
+</div>
+<div class="glass-panel relative overflow-hidden h-64">
+<img class="w-full h-full object-cover grayscale opacity-40" data-alt="Massive commercial cargo containers stacked on a modern transport vessel at a high-tech port terminal. The scene is shot from a low angle at dusk, with industrial lights creating sharp highlights. The atmosphere is technical, global, and highly efficient, emphasizing large-scale logistics and maritime trade infrastructure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD16O29riViPA54DMrneqn01VzjDmxxDi1vSV78ANmlK1vu57rn9Zz6uuFgbpaStj4MeJxmjO5kDfSQxe7KqQOhZqgoYidn_ypfjYKwnksdQUq2ll00JOdcfuBtjVIC6VE5DxBV77kRj_lmFMU96rk-EKK6a4RymTxJk73_KEPsv9_czwf6heR7FchauiXLQ6fIRLxzlhjAlSCE8OekWYgbemL53-GtcYmdmrfi59CCbYheHCq9Ua2cBzsaYNoS0vyVEg7XjKPoQ8U"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="bg-primary text-on-primary px-6 py-2 uppercase tracking-[0.2em] text-xs font-bold">Commercial Ops</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Fleet Gallery -->
+<section class="py-section-padding bg-background overflow-hidden">
+<div class="px-margin-edge max-w-container-max mx-auto mb-12 flex justify-between items-end">
+<div>
+<span class="font-label-eyebrow text-secondary uppercase block mb-4">The Collection</span>
+<h2 class="font-headline-section text-headline-section">Vessel Specifications</h2>
+</div>
+<div class="hidden md:flex gap-4">
+<button class="w-12 h-12 border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all duration-300">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-12 h-12 border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all duration-300">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex gap-gutter px-margin-edge overflow-x-auto no-scrollbar pb-8">
+<!-- Yacht 1 -->
+<div class="min-w-[400px] glass-panel p-0 group overflow-hidden">
+<div class="h-[500px] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Detail shot of a minimalist modern superyacht deck with polished chrome fittings and dark wood accents. The lighting is cold and clinical, highlighting the sharp lines and high-quality materials. The background shows a calm, dark sea under a moonlit sky, evoking a sense of exclusive luxury and technical perfection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUcj77DZ-khlSgivX_utfh6q5x05MqQD3G5LhT0rBnRH-9_rmFryF_4pbBAHhea8Tng2bZ9flUaoZeJWkOnK3AeLLdaOXHnjxXNNwD80choRbJDVt1v1mfh67Wvnhv0iqpV8Qj9xLeFpnKZWJcL9BUulQmDARmAnpwfE_DY_iac8vMvVbKUDIlHb-FB8rQCg3uCII_UmPbFwm6cx7TfVQY0h2qwfZd537wpMNQcywVyr8ArINk-vzwD2EwHxjEoLDqa5K1QXukDkU"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-baseline mb-4">
+<h3 class="font-headline-section text-[32px]">Odyssey-X</h3>
+<span class="font-label-eyebrow text-primary">Class: Alpha</span>
+</div>
+<ul class="space-y-3 font-ui-standard text-on-surface-variant">
+<li class="flex justify-between ghost-rule pb-2"><span>Capacity</span><span>12 Guest / 6 Crew</span></li>
+<li class="flex justify-between ghost-rule pb-2"><span>Length</span><span>42 Meters</span></li>
+<li class="flex justify-between ghost-rule pb-2"><span>Cruising Speed</span><span>28 Knots</span></li>
+</ul>
+</div>
+</div>
+<!-- Yacht 2 -->
+<div class="min-w-[400px] glass-panel p-0 group overflow-hidden">
+<div class="h-[500px] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Interior of a luxury yacht main salon featuring floor-to-ceiling windows overlooking a serene ocean. The furniture is minimalist and contemporary, with a palette of deep blues, charcoals, and brushed metals. The atmosphere is quiet, elite, and intensely private, representing the pinnacle of corporate or leisure maritime hospitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7uoILJp21TOMw-dYaP1jRwq3C6sou2pQ254YAMXZLXNIw0Ft4r2HJF4XRyi83f3lwQAbL90LbcDUiVuL1HR32_cIetxW8ec77m4PtqSCC1Vfhd4dcyvEylAGj2og3rhQLpzqOWpELD5i3y2_uTHoVGBFYW-BC2ttwUTErPUKuvQw79tARThO7YClApO2s58rW-zc5bySBi0M1uuoJ-JVMmyAtsAugEQnCrMtxRSeNLQ2GQyCe9mN0q5yJP3CYz1d67tylyw0orKk"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-baseline mb-4">
+<h3 class="font-headline-section text-[32px]">Zenith II</h3>
+<span class="font-label-eyebrow text-primary">Class: Omega</span>
+</div>
+<ul class="space-y-3 font-ui-standard text-on-surface-variant">
+<li class="flex justify-between ghost-rule pb-2"><span>Capacity</span><span>24 Guest / 12 Crew</span></li>
+<li class="flex justify-between ghost-rule pb-2"><span>Length</span><span>78 Meters</span></li>
+<li class="flex justify-between ghost-rule pb-2"><span>Cruising Speed</span><span>22 Knots</span></li>
+</ul>
+</div>
+</div>
+<!-- Yacht 3 -->
+<div class="min-w-[400px] glass-panel p-0 group overflow-hidden">
+<div class="h-[500px] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Exterior view of a sleek, dark-hulled naval style explorer vessel docked in a modern architectural harbor. The setting is cold and futuristic, with sharp angles and dramatic lighting. This image represents the rugged yet refined nature of global fleet logistics and expeditionary maritime services provided by a global security firm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRuCXNb_xkANA8xcnUVlACFfWeWt_-jC3MxELniCyNdNKRLRnzX1LtYtCMRcSRmxWo1iPEhf8DBOIvk49DTnYRaObhYb-Yo1TosnhjdVdba3aI0rM_Qy7ZftJ6v5Bam_6-jNWQouKUrEFAjJuhro77ASzsvqybyjtavnKMcIjvFk9phyowJyJsP8ilNhy9kDOVqKj6oqQEcRfel0ZIR2YHy6m672ZWEpcZ63auE8mz4JBEBG_5Y38frNo3PvptdvcTxEsMrJ69xt0"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-baseline mb-4">
+<h3 class="font-headline-section text-[32px]">Explorer 01</h3>
+<span class="font-label-eyebrow text-primary">Class: Logistics</span>
+</div>
+<ul class="space-y-3 font-ui-standard text-on-surface-variant">
+<li class="flex justify-between ghost-rule pb-2"><span>Capacity</span><span>150 Tons Cargo</span></li>
+<li class="flex justify-between ghost-rule pb-2"><span>Endurance</span><span>12,000 NM</span></li>
+<li class="flex justify-between ghost-rule pb-2"><span>Classification</span><span>Ice Class 1A</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Service Request Form -->
+<section class="py-section-padding bg-surface-container-low depth-chart-bg">
+<div class="px-margin-edge max-w-container-max mx-auto">
+<div class="grid grid-cols-12 gap-gutter items-start">
+<div class="col-span-12 lg:col-span-5">
+<span class="font-label-eyebrow text-secondary uppercase block mb-4">Engagement</span>
+<h2 class="font-headline-section text-headline-section mb-8">Service Deployment Request</h2>
+<p class="text-on-surface-variant mb-12">Submit your requirements for a comprehensive logistical analysis. Our maritime command center will provide a deployment strategy within 6 hours of submission.</p>
+<div class="space-y-8">
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+<div>
+<h4 class="font-ui-standard font-bold uppercase mb-2">Technical Support</h4>
+<p class="text-sm opacity-60">24/7 Global dispatch for all fleet operations.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-7 glass-panel p-12">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+<!-- Field: Event Type -->
+<div class="flex flex-col gap-2">
+<label class="font-label-eyebrow text-secondary uppercase">Event Type</label>
+<select class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface py-2 px-0 font-ui-standard">
+<option value="luxury">Luxury Cruise</option>
+<option value="corporate">Corporate Event</option>
+<option value="vip">VIP Expedition</option>
+<option value="commercial">Commercial Transport</option>
+</select>
+</div>
+<!-- Field: Date -->
+<div class="flex flex-col gap-2">
+<label class="font-label-eyebrow text-secondary uppercase">Proposed Date</label>
+<input class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface py-2 px-0 font-ui-standard" type="date"/>
+</div>
+<!-- Field: Guest Count -->
+<div class="flex flex-col gap-2">
+<label class="font-label-eyebrow text-secondary uppercase">Guest Count / Payload</label>
+<input class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface py-2 px-0 font-ui-standard placeholder:opacity-30" placeholder="Specify count or tonnage" type="text"/>
+</div>
+<!-- Field: Duration -->
+<div class="flex flex-col gap-2">
+<label class="font-label-eyebrow text-secondary uppercase">Duration</label>
+<input class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface py-2 px-0 font-ui-standard placeholder:opacity-30" placeholder="Hours or Days" type="text"/>
+</div>
+<!-- Field: Departure Point -->
+<div class="col-span-full flex flex-col gap-2">
+<label class="font-label-eyebrow text-secondary uppercase">Departure Point / Global Node</label>
+<input class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface py-2 px-0 font-ui-standard placeholder:opacity-30" placeholder="Enter port or city name" type="text"/>
+</div>
+<!-- Field: Special Requests -->
+<div class="col-span-full flex flex-col gap-2">
+<label class="font-label-eyebrow text-secondary uppercase">Operational Requirements</label>
+<textarea class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary text-on-surface py-2 px-0 font-ui-standard placeholder:opacity-30" placeholder="Security clearance, specialized equipment, catering..." rows="3"></textarea>
+</div>
+<div class="col-span-full mt-6">
+<button class="w-full bg-primary text-on-primary py-5 font-ui-standard font-bold uppercase tracking-[0.3em] hover:bg-secondary transition-all duration-500" type="submit">Initialize Command</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Monumental Footer Shell -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20 pt-section-padding pb-8">
+<div class="grid grid-cols-4 gap-gutter px-margin-edge max-w-container-max mx-auto mb-20">
+<div class="col-span-4 lg:col-span-1">
+<span class="font-label-eyebrow text-primary block mb-6">GLOBAL NODES</span>
+<ul class="space-y-4 font-ui-standard text-on-surface-variant">
+<li class="hover:translate-x-1 transition-transform cursor-pointer hover:text-primary">LONDON HQ</li>
+<li class="hover:translate-x-1 transition-transform cursor-pointer hover:text-primary">SINGAPORE HUB</li>
+<li class="hover:translate-x-1 transition-transform cursor-pointer hover:text-primary">DUBAI PORT</li>
+<li class="hover:translate-x-1 transition-transform cursor-pointer hover:text-primary">NEW YORK BASE</li>
+</ul>
+</div>
+<div class="col-span-4 lg:col-span-1">
+<span class="font-label-eyebrow text-primary block mb-6">SECTORS</span>
+<ul class="space-y-4 font-ui-standard text-on-surface-variant">
+<li class="hover:translate-x-1 transition-transform cursor-pointer hover:text-primary">AVIATION DIVISION</li>
+<li class="hover:translate-x-1 transition-transform cursor-pointer hover:text-primary">MARINE LOGISTICS</li>
+<li class="hover:translate-x-1 transition-transform cursor-pointer hover:text-primary">STRATEGIC ADVISORY</li>
+<li class="hover:translate-x-1 transition-transform cursor-pointer hover:text-primary">CYBER OPERATIONS</li>
+</ul>
+</div>
+<div class="col-span-4 lg:col-span-1">
+<span class="font-label-eyebrow text-primary block mb-6">RESOURCES</span>
+<ul class="space-y-4 font-ui-standard text-on-surface-variant">
+<li class="hover:translate-x-1 transition-transform cursor-pointer hover:text-primary">FLEET STATUS</li>
+<li class="hover:translate-x-1 transition-transform cursor-pointer hover:text-primary">PORT AUTHORITY</li>
+<li class="hover:translate-x-1 transition-transform cursor-pointer hover:text-primary">SAFETY PROTOCOL</li>
+<li class="hover:translate-x-1 transition-transform cursor-pointer hover:text-primary">CLIENT LOGIN</li>
+</ul>
+</div>
+<div class="col-span-4 lg:col-span-1">
+<span class="font-label-eyebrow text-primary block mb-6">CONTACT</span>
+<p class="font-ui-standard text-on-surface-variant mb-6">OPS-CENTER@SGS-GLOBAL.INT</p>
+<div class="flex gap-4">
+<div class="w-10 h-10 border border-outline-variant flex items-center justify-center hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</div>
+<div class="w-10 h-10 border border-outline-variant flex items-center justify-center hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">hub</span>
+</div>
+</div>
+</div>
+</div>
+<div class="font-display-hero text-display-hero text-on-surface w-full text-center py-section-padding opacity-10 pointer-events-none select-none overflow-hidden whitespace-nowrap">
+            SMART GLOBAL SERVICE
+        </div>
+<div class="px-margin-edge max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center font-ui-standard text-[10px] uppercase tracking-[0.2em] text-outline pt-8 border-t border-outline-variant/10">
+<span>© 2024 SMART GLOBAL SERVICE. ALL RIGHTS RESERVED.</span>
+<div class="flex gap-8 mt-4 md:mt-0">
+<a class="hover:text-primary transition-colors" href="#">Privacy Protocol</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Engagement</a>
+</div>
+</div>
+</footer>
+</body></html>

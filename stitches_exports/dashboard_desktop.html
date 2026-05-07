@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=DM+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#003063",
+                    "error-container": "#93000a",
+                    "on-primary": "#002d6f",
+                    "surface-container-highest": "#12384f",
+                    "secondary-fixed-dim": "#a9c7ff",
+                    "on-background": "#c9e6ff",
+                    "on-primary-container": "#a1bbff",
+                    "on-tertiary-container": "#ffa781",
+                    "surface-variant": "#12384f",
+                    "primary-fixed": "#d9e2ff",
+                    "surface-bright": "#183c54",
+                    "inverse-surface": "#c9e6ff",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "background": "#001523",
+                    "outline-variant": "#434652",
+                    "inverse-primary": "#2b5bb5",
+                    "surface": "#001523",
+                    "on-primary-fixed-variant": "#00429c",
+                    "tertiary-fixed": "#ffdbcd",
+                    "surface-tint": "#b0c6ff",
+                    "primary-container": "#0d47a1",
+                    "tertiary-container": "#853100",
+                    "on-error": "#690005",
+                    "secondary-fixed": "#d6e3ff",
+                    "primary": "#b0c6ff",
+                    "on-primary-fixed": "#001945",
+                    "tertiary": "#ffb596",
+                    "outline": "#8d909d",
+                    "secondary": "#a9c7ff",
+                    "surface-container-high": "#022d43",
+                    "on-secondary-fixed": "#001b3d",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#c6d9ff",
+                    "surface-dim": "#001523",
+                    "on-surface": "#c9e6ff",
+                    "on-surface-variant": "#c3c6d4",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#00468c",
+                    "surface-container": "#002235",
+                    "surface-container-low": "#001e2f",
+                    "surface-container-lowest": "#00101b",
+                    "on-tertiary": "#581e00",
+                    "secondary-container": "#005db7",
+                    "on-tertiary-fixed": "#360f00",
+                    "inverse-on-surface": "#0c344a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "unit": "4px",
+                    "section-padding": "120px",
+                    "margin-edge": "64px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display-hero": ["Cormorant Garamond"],
+                    "headline-section": ["Cormorant Garamond"],
+                    "body-large": ["DM Sans"],
+                    "label-eyebrow": ["DM Sans"],
+                    "ui-standard": ["DM Sans"]
+            },
+            "fontSize": {
+                    "display-hero": ["84px", {"lineHeight": "0.9", "letterSpacing": "-0.03em", "fontWeight": "100"}],
+                    "headline-section": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "300"}],
+                    "body-large": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "300"}],
+                    "label-eyebrow": ["11px", {"lineHeight": "1.0", "letterSpacing": "0.14em", "fontWeight": "500"}],
+                    "ui-standard": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #00101b; /* Deep Space Base */
+            color: #c9e6ff;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .deep-field-bg {
+            background-image: radial-gradient(circle at 50% 50%, rgba(187, 222, 251, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+        }
+
+        .concentric-rings {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150vh;
+            height: 150vh;
+            border: 1px solid rgba(187, 222, 251, 0.03);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .concentric-rings::before {
+            content: '';
+            position: absolute;
+            inset: 15%;
+            border: 1px solid rgba(187, 222, 251, 0.02);
+            border-radius: 50%;
+        }
+        .concentric-rings::after {
+            content: '';
+            position: absolute;
+            inset: 35%;
+            border: 1px solid rgba(187, 222, 251, 0.01);
+            border-radius: 50%;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(187, 222, 251, 0.1);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #434652;
+        }
+    </style>
+</head>
+<body class="font-ui-standard antialiased">
+<!-- Global Background Elements -->
+<div class="deep-field-bg"></div>
+<div class="concentric-rings"></div>
+<!-- Top Navigation Bar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/30 backdrop-blur-2xl dark:bg-surface-dim/30 border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-margin-edge max-w-container-max mx-auto h-20">
+<div class="font-display-hero text-4xl text-primary dark:text-primary-fixed-dim uppercase tracking-[0.2em]">SGS</div>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-500" href="#">HOME</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-500" href="#">SERVICES</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-500" href="#">FLEET</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-primary dark:text-primary-fixed-dim border-b border-primary h-full flex items-center" href="#">HISTORY</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-500" href="#">LOGISTICS</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-500" href="#">ABOUT</a>
+</nav>
+<button class="bg-primary text-on-primary font-ui-standard text-xs tracking-[0.2em] px-8 py-3 scale-100 active:scale-95 transition-transform uppercase">
+                REQUEST SERVICE
+            </button>
+</div>
+</header>
+<div class="flex max-w-container-max mx-auto min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="w-64 border-r border-outline-variant/20 py-12 flex flex-col gap-12 sticky top-20 h-[calc(100vh-80px)]">
+<div class="px-margin-edge">
+<span class="font-label-eyebrow text-label-eyebrow text-outline uppercase tracking-widest block mb-8">Navigation</span>
+<nav class="flex flex-col gap-6">
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined text-xl">home</span>
+<span class="font-ui-standard text-sm uppercase tracking-widest">Home</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined text-xl">deployed_code</span>
+<span class="font-ui-standard text-sm uppercase tracking-widest">Services</span>
+</a>
+<a class="flex items-center gap-4 text-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="font-ui-standard text-sm uppercase tracking-widest font-bold">History</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="font-ui-standard text-sm uppercase tracking-widest">Notifications</span>
+<span class="w-2 h-2 rounded-full bg-error ml-auto"></span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:text-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span class="font-ui-standard text-sm uppercase tracking-widest">Settings</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto px-margin-edge">
+<div class="glass-panel p-4 flex items-center gap-4 border border-outline-variant/30">
+<img alt="Profile" class="w-10 h-10 object-cover" data-alt="A macro photograph of a sleek, dark biometric identification device showing a stylized human profile in blue light. The lighting is cold and clinical with deep blacks and sharp neon blue highlights, emphasizing a high-security and technologically advanced professional environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJN1dkqOdWOIBFzpWZHBqm1kS42pElu_aKolzPR2BmRPmQ_BeqhSG5xQmfNfWSX37rCE2kPMDretGMo8LN2DFEHwiIlShaL6bEhd2A8m-SCbZAzVNoDbCH-tTYwE_4C0k5zXsX1EnIGKemlGhP66yM3QoxbOYxiYrug11opGi1Kmt7cz8m3oc08NuxBydWitL7PPx0ABkJ9mu8YLEz1iVl_sD4q0TpbU_9m8RcHBLZ6odwlxOURAk0LggUG1LNhw-6lHewPIczEro"/>
+<div class="flex flex-col">
+<span class="font-label-eyebrow text-[10px] text-outline uppercase">Global Admin</span>
+<span class="font-ui-standard text-xs font-bold tracking-widest">COMMANDER_01</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col">
+<!-- Dashboard Header Section -->
+<section class="px-gutter pt-12 pb-12">
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase tracking-[0.3em] mb-4 block">Operations Oversight</span>
+<h1 class="font-display-hero text-headline-section text-on-surface uppercase tracking-tighter">Global Intelligence Dashboard</h1>
+<div class="w-full h-px bg-outline-variant/20 mt-8"></div>
+</section>
+<!-- Dual Pane Layout -->
+<div class="flex flex-1 gap-gutter px-gutter pb-section-padding">
+<!-- Left Pane: Global Mission History -->
+<div class="w-3/5 flex flex-col gap-8">
+<div class="flex justify-between items-end">
+<h2 class="font-headline-section text-2xl uppercase tracking-widest text-on-surface">Global Mission History</h2>
+<span class="font-label-eyebrow text-[10px] text-outline uppercase">Displaying 14 Active Nodes</span>
+</div>
+<div class="glass-panel overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/30">
+<th class="py-6 px-6 font-label-eyebrow text-label-eyebrow text-outline uppercase">Logistics ID</th>
+<th class="py-6 px-6 font-label-eyebrow text-label-eyebrow text-outline uppercase">Service Vertical</th>
+<th class="py-6 px-6 font-label-eyebrow text-label-eyebrow text-outline uppercase">Status</th>
+<th class="py-6 px-6 font-label-eyebrow text-label-eyebrow text-outline uppercase">Timeline</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="py-6 px-6 font-ui-standard text-xs tracking-widest text-on-surface">#SGS-7729-ALPHA</td>
+<td class="py-6 px-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">flight</span>
+<span class="font-ui-standard text-xs uppercase tracking-widest">Aviation</span>
+</div>
+</td>
+<td class="py-6 px-6">
+<span class="px-3 py-1 border border-primary text-[10px] text-primary uppercase font-bold tracking-widest">Approved</span>
+</td>
+<td class="py-6 px-6 font-ui-standard text-[10px] text-outline uppercase">12m ago</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="py-6 px-6 font-ui-standard text-xs tracking-widest text-on-surface">#SGS-4410-BRAVO</td>
+<td class="py-6 px-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">directions_boat</span>
+<span class="font-ui-standard text-xs uppercase tracking-widest">Marine</span>
+</div>
+</td>
+<td class="py-6 px-6">
+<span class="px-3 py-1 border border-outline text-[10px] text-outline uppercase font-bold tracking-widest">Quoted</span>
+</td>
+<td class="py-6 px-6 font-ui-standard text-[10px] text-outline uppercase">4h ago</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="py-6 px-6 font-ui-standard text-xs tracking-widest text-on-surface">#SGS-0012-DELTA</td>
+<td class="py-6 px-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-sm">local_shipping</span>
+<span class="font-ui-standard text-xs uppercase tracking-widest">Logistics</span>
+</div>
+</td>
+<td class="py-6 px-6">
+<span class="px-3 py-1 border border-tertiary text-[10px] text-tertiary uppercase font-bold tracking-widest">Pending</span>
+</td>
+<td class="py-6 px-6 font-ui-standard text-[10px] text-outline uppercase">2d ago</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="py-6 px-6 font-ui-standard text-xs tracking-widest text-on-surface">#SGS-9921-GAMMA</td>
+<td class="py-6 px-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">precision_manufacturing</span>
+<span class="font-ui-standard text-xs uppercase tracking-widest">Industrial</span>
+</div>
+</td>
+<td class="py-6 px-6">
+<span class="px-3 py-1 border border-primary text-[10px] text-primary uppercase font-bold tracking-widest">Approved</span>
+</td>
+<td class="py-6 px-6 font-ui-standard text-[10px] text-outline uppercase">5d ago</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="py-6 px-6 font-ui-standard text-xs tracking-widest text-on-surface">#SGS-1108-ZULU</td>
+<td class="py-6 px-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">public</span>
+<span class="font-ui-standard text-xs uppercase tracking-widest">Advisory</span>
+</div>
+</td>
+<td class="py-6 px-6">
+<span class="px-3 py-1 border border-primary text-[10px] text-primary uppercase font-bold tracking-widest">Approved</span>
+</td>
+<td class="py-6 px-6 font-ui-standard text-[10px] text-outline uppercase">1w ago</td>
+</tr>
+</tbody>
+</table>
+<div class="p-6 border-t border-outline-variant/30 flex justify-center">
+<button class="font-label-eyebrow text-label-eyebrow text-outline hover:text-primary transition-colors tracking-widest uppercase">Load Extended Archives</button>
+</div>
+</div>
+</div>
+<!-- Right Pane: Live Intelligence Stream -->
+<div class="w-2/5 flex flex-col gap-8">
+<div class="flex justify-between items-end">
+<h2 class="font-headline-section text-2xl uppercase tracking-widest text-on-surface">Live Intelligence Stream</h2>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-eyebrow text-[10px] text-primary uppercase">Active Sync</span>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Notification Item 1 -->
+<div class="glass-panel p-6 relative overflow-hidden group hover:border-primary transition-colors duration-500">
+<div class="absolute top-0 right-0 p-4">
+<span class="font-label-eyebrow text-[9px] text-outline uppercase">Critical Update</span>
+</div>
+<div class="flex gap-6">
+<div class="w-12 h-12 flex items-center justify-center border border-primary/20 bg-primary/5">
+<span class="material-symbols-outlined text-primary">sensors</span>
+</div>
+<div class="flex flex-col gap-2 flex-1">
+<span class="font-ui-standard text-xs font-bold uppercase tracking-widest">Mission Activation</span>
+<p class="font-ui-standard text-sm text-on-surface-variant leading-relaxed">
+                                        Asset <span class="text-on-surface">#ALPHA-9</span> has departed Terminal B. En route to Gulf Sector 4.
+                                    </p>
+<span class="font-label-eyebrow text-[9px] text-outline uppercase mt-2">Just Now • Sector B4</span>
+</div>
+</div>
+</div>
+<!-- Notification Item 2 -->
+<div class="glass-panel p-6 relative overflow-hidden group hover:border-secondary transition-colors duration-500">
+<div class="flex gap-6">
+<div class="w-12 h-12 flex items-center justify-center border border-secondary/20 bg-secondary/5">
+<span class="material-symbols-outlined text-secondary">request_quote</span>
+</div>
+<div class="flex flex-col gap-2 flex-1">
+<span class="font-ui-standard text-xs font-bold uppercase tracking-widest text-secondary">Quote Arrival</span>
+<p class="font-ui-standard text-sm text-on-surface-variant leading-relaxed">
+                                        Strategic advisory quote for <span class="text-on-surface">EMEA expansion</span> is now ready for review.
+                                    </p>
+<span class="font-label-eyebrow text-[9px] text-outline uppercase mt-2">14 Minutes ago • Advisory</span>
+</div>
+</div>
+</div>
+<!-- Notification Item 3 -->
+<div class="glass-panel p-6 relative overflow-hidden group hover:border-primary transition-colors duration-500">
+<div class="flex gap-6">
+<div class="w-12 h-12 flex items-center justify-center border border-primary/20 bg-primary/5">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<div class="flex flex-col gap-2 flex-1">
+<span class="font-ui-standard text-xs font-bold uppercase tracking-widest">Payment Receipt</span>
+<p class="font-ui-standard text-sm text-on-surface-variant leading-relaxed">
+                                        Transaction <span class="text-on-surface">TX-992-B</span> confirmed. Credit applied to Global Fleet account.
+                                    </p>
+<span class="font-label-eyebrow text-[9px] text-outline uppercase mt-2">2 Hours ago • Finance</span>
+</div>
+</div>
+</div>
+<!-- Notification Item 4 (Faded) -->
+<div class="glass-panel p-6 relative overflow-hidden opacity-50 group hover:opacity-100 transition-all duration-500">
+<div class="flex gap-6">
+<div class="w-12 h-12 flex items-center justify-center border border-outline/20 bg-outline/5">
+<span class="material-symbols-outlined text-outline">verified_user</span>
+</div>
+<div class="flex flex-col gap-2 flex-1">
+<span class="font-ui-standard text-xs font-bold uppercase tracking-widest text-outline">Security Protocol</span>
+<p class="font-ui-standard text-sm text-on-surface-variant leading-relaxed">
+                                        Biometric nodes refreshed across all secondary terminals. No anomalies detected.
+                                    </p>
+<span class="font-label-eyebrow text-[9px] text-outline uppercase mt-2">5 Hours ago • Security</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full border border-outline-variant/30 py-4 font-ui-standard text-xs uppercase tracking-[0.2em] hover:bg-white/5 transition-colors">
+                        Expand All Intelligence
+                    </button>
+</div>
+</div>
+</main>
+</div>
+<!-- Monumental Footer -->
+<footer class="full-width bottom-0 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="w-full">
+<h2 class="font-display-hero text-display-hero uppercase tracking-tighter text-on-surface dark:text-on-surface w-full text-center py-section-padding opacity-10">SMART GLOBAL SERVICE</h2>
+</div>
+<div class="grid grid-cols-4 gap-gutter px-margin-edge py-section-padding max-w-container-max mx-auto">
+<div class="flex flex-col gap-8">
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase tracking-widest">Strategic Nodes</span>
+<ul class="flex flex-col gap-4">
+<li><a class="font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block uppercase tracking-widest text-xs" href="#">GLOBAL NODES</a></li>
+<li><a class="font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block uppercase tracking-widest text-xs" href="#">SECTORS</a></li>
+<li><a class="font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block uppercase tracking-widest text-xs" href="#">FLEET OPERATIONS</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-8">
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase tracking-widest">Intelligence Units</span>
+<ul class="flex flex-col gap-4">
+<li><a class="font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block uppercase tracking-widest text-xs" href="#">AVIATION DIVISION</a></li>
+<li><a class="font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block uppercase tracking-widest text-xs" href="#">MARINE LOGISTICS</a></li>
+<li><a class="font-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block uppercase tracking-widest text-xs" href="#">STRATEGIC ADVISORY</a></li>
+</ul>
+</div>
+<div class="col-span-2 flex flex-col items-end gap-8">
+<div class="text-right">
+<p class="font-ui-standard text-on-surface-variant uppercase tracking-widest text-[10px] leading-loose">
+                        PRECISION IN MOTION.<br/>
+                        AUTHORITY IN EXECUTION.<br/>
+                        GLOBAL REACH, LOCAL IMPACT.
+                    </p>
+</div>
+<div class="font-ui-standard text-[10px] text-outline uppercase tracking-widest mt-auto">
+                    © 2024 SMART GLOBAL SERVICE. ALL RIGHTS RESERVED.
+                </div>
+</div>
+</div>
+</footer>
+</body></html>

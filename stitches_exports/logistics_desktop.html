@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#853100",
+                    "on-primary": "#002d6f",
+                    "surface-container": "#002235",
+                    "on-primary-container": "#a1bbff",
+                    "on-surface": "#c9e6ff",
+                    "inverse-on-surface": "#0c344a",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "primary-fixed": "#d9e2ff",
+                    "surface-dim": "#001523",
+                    "on-primary-fixed-variant": "#00429c",
+                    "primary-container": "#0d47a1",
+                    "on-secondary": "#003063",
+                    "background": "#001523",
+                    "inverse-primary": "#2b5bb5",
+                    "outline-variant": "#434652",
+                    "surface-container-lowest": "#00101b",
+                    "on-secondary-container": "#c6d9ff",
+                    "tertiary": "#ffb596",
+                    "on-secondary-fixed": "#001b3d",
+                    "on-error": "#690005",
+                    "surface-bright": "#183c54",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "secondary": "#a9c7ff",
+                    "on-tertiary-container": "#ffa781",
+                    "on-background": "#c9e6ff",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-tertiary": "#581e00",
+                    "on-tertiary-fixed": "#360f00",
+                    "primary": "#b0c6ff",
+                    "outline": "#8d909d",
+                    "surface": "#001523",
+                    "on-error-container": "#ffdad6",
+                    "secondary-container": "#005db7",
+                    "on-secondary-fixed-variant": "#00468c",
+                    "on-primary-fixed": "#001945",
+                    "on-surface-variant": "#c3c6d4",
+                    "inverse-surface": "#c9e6ff",
+                    "surface-variant": "#12384f",
+                    "surface-container-highest": "#12384f",
+                    "surface-tint": "#b0c6ff",
+                    "surface-container-low": "#001e2f",
+                    "secondary-fixed-dim": "#a9c7ff",
+                    "surface-container-high": "#022d43",
+                    "secondary-fixed": "#d6e3ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "section-padding": "120px",
+                    "margin-edge": "64px",
+                    "gutter": "24px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "body-large": ["DM Sans"],
+                    "ui-standard": ["DM Sans"],
+                    "label-eyebrow": ["DM Sans"],
+                    "headline-section": ["Cormorant Garamond"],
+                    "display-hero": ["Cormorant Garamond"]
+            },
+            "fontSize": {
+                    "body-large": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "300"}],
+                    "ui-standard": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "label-eyebrow": ["11px", {"lineHeight": "1.0", "letterSpacing": "0.14em", "fontWeight": "500"}],
+                    "headline-section": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "300"}],
+                    "display-hero": ["84px", {"lineHeight": "0.9", "letterSpacing": "-0.03em", "fontWeight": "100"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .circuit-bg {
+            background-image: radial-gradient(circle at 1px 1px, rgba(187, 222, 251, 0.08) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .hex-mesh {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill-opacity='0.03' fill='%23BBDEFB' stroke='%23BBDEFB' stroke-opacity='0.1' stroke-width='1'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/30 backdrop-blur-2xl dark:bg-surface-dim/30 border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-margin-edge max-w-container-max mx-auto py-6">
+<div class="font-display-hero text-[32px] text-primary dark:text-primary-fixed-dim uppercase tracking-tighter flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">language</span>
+                SGS
+            </div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">HOME</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">SERVICES</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">FLEET</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">AVIATION</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">MARINE</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-primary dark:text-primary-fixed-dim border-b border-primary hover:text-secondary dark:hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">LOGISTICS</a>
+<a class="font-ui-standard text-ui-standard uppercase tracking-widest text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-500 scale-100 active:scale-95 transition-transform" href="#">ABOUT</a>
+</nav>
+<button class="bg-primary text-on-primary font-ui-standard text-ui-standard px-6 py-2 uppercase tracking-widest scale-100 active:scale-95 transition-transform hover:bg-secondary transition-colors">
+                REQUEST SERVICE
+            </button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden circuit-bg hex-mesh">
+<div class="absolute inset-0 bg-gradient-to-b from-surface/0 via-surface/40 to-surface"></div>
+<div class="relative z-10 text-center max-w-container-max mx-auto px-margin-edge">
+<span class="font-label-eyebrow text-label-eyebrow text-secondary uppercase block mb-6 tracking-[0.4em]">Vertical Command : Logistics &amp; Procurement</span>
+<div class="grid md:grid-cols-2 gap-20 items-center">
+<div class="text-left">
+<h1 class="font-display-hero text-display-hero text-on-surface mb-4">
+                            Logistics.<br/><span class="text-primary italic">Global Flow.</span>
+</h1>
+<p class="font-body-large text-body-large text-on-surface-variant max-w-lg mb-12">
+                            Absolute precision in transit. From local haulage to complex multi-nodal supply chains, we command the movement of assets across every terrestrial border.
+                        </p>
+</div>
+<div class="text-left border-l border-outline-variant/30 pl-16">
+<h1 class="font-display-hero text-display-hero text-on-surface mb-4">
+                            Procurement.<br/><span class="text-secondary italic">Strategic Sourcing.</span>
+</h1>
+<p class="font-body-large text-body-large text-on-surface-variant max-w-lg">
+                            Intelligence-led acquisition. Leveraging global networks to secure critical infrastructure, ensuring resilience through rigorous vendor audit and lifecycle management.
+                        </p>
+</div>
+</div>
+</div>
+<div class="absolute bottom-20 left-1/2 -translate-x-1/2 animate-bounce">
+<span class="material-symbols-outlined text-primary font-thin">expand_more</span>
+</div>
+</section>
+<!-- Bento Grid: Capabilities -->
+<section class="py-section-padding bg-surface-container-low relative">
+<div class="max-w-container-max mx-auto px-margin-edge">
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Haulage -->
+<div class="col-span-12 md:col-span-7 bg-surface-container-highest/20 backdrop-blur-3xl border border-outline-variant/30 p-12 group hover:border-primary/50 transition-colors duration-500">
+<span class="font-label-eyebrow text-label-eyebrow text-primary uppercase mb-8 block">Network Operations</span>
+<h2 class="font-headline-section text-headline-section text-on-surface mb-6">Haulage &amp; Fleet Integration</h2>
+<p class="font-body-large text-body-large text-on-surface-variant mb-10 max-w-xl">
+                            Our terrestrial division operates a synchronized fleet of heavy-lift vehicles across local and interstate corridors. Real-time telemetry ensures sub-meter tracking of critical cargo.
+                        </p>
+<div class="relative h-64 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+<img class="w-full h-full object-cover opacity-60" data-alt="A cinematic night-time view of a long-haul transport truck moving swiftly along a neon-lit modern highway. The image uses long exposure to create streaks of blue and white light, reflecting the high-speed and technical precision of the logistics industry. The atmosphere is cold, professional, and sophisticated, dominated by midnight navy and starlight blue tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVj0da7MKI8JhQtelo7ybvr04pEPBSAjT4xZsIFKm-bcFI8HBXK5kvpSCtt0wBNULpZ3simBBYwn_QEwzkoclRNfT4i_UVTzGSNZHEiovCatMYHoabwiNe4rlMwKY0mEdWaCUIajnqy2MnGWFBMMVDkYz5P92kRI2G2S73clL5GI92MvaCRB7V6HvbWuhqxifWV22eGvCSQ0aTZAvc1lNWMzSGhwbvFQUBsSH2iyBsdlweQrBmmAd8eZL6rAFDuemsJNTnQK0M38w"/>
+</div>
+</div>
+<!-- Transport Consulting -->
+<div class="col-span-12 md:col-span-5 bg-surface-container-lowest border border-outline-variant/30 p-12 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary text-5xl mb-6">insights</span>
+<h2 class="font-headline-section text-headline-section text-on-surface mb-6">Transport Consulting</h2>
+<p class="font-body-large text-body-large text-on-surface-variant">
+                                Advisory services for supply chain optimization. We architect logistics frameworks that reduce latency and maximize security for sovereign and corporate entities.
+                            </p>
+</div>
+<ul class="space-y-4 pt-10 border-t border-outline-variant/20">
+<li class="flex justify-between items-center text-ui-standard font-ui-standard">
+<span class="text-on-surface-variant uppercase tracking-widest">Route Optimization</span>
+<span class="text-primary material-symbols-outlined">done</span>
+</li>
+<li class="flex justify-between items-center text-ui-standard font-ui-standard">
+<span class="text-on-surface-variant uppercase tracking-widest">Regulatory Compliance</span>
+<span class="text-primary material-symbols-outlined">done</span>
+</li>
+</ul>
+</div>
+<!-- Global Sourcing -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-highest/10 border border-outline-variant/30 p-12">
+<h3 class="font-headline-section text-[32px] text-on-surface mb-4 uppercase tracking-tighter">Global Sourcing</h3>
+<p class="font-ui-standard text-ui-standard text-on-surface-variant mb-8">
+                            Accessing Tier-1 manufacturing hubs and raw material reserves through established trade channels.
+                        </p>
+<div class="h-1 w-full bg-outline-variant/20 mb-8">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+<span class="font-label-eyebrow text-label-eyebrow text-secondary uppercase tracking-[0.2em]">67% Reach Efficiency</span>
+</div>
+<!-- Vendor Risk Audit -->
+<div class="col-span-12 md:col-span-4 bg-surface/40 backdrop-blur-md border border-outline-variant/30 p-12">
+<h3 class="font-headline-section text-[32px] text-on-surface mb-4 uppercase tracking-tighter">Vendor Risk Audit</h3>
+<p class="font-ui-standard text-ui-standard text-on-surface-variant mb-8">
+                            Deep-dive due diligence and ethical scoring for third-party partners and upstream suppliers.
+                        </p>
+<div class="h-1 w-full bg-outline-variant/20 mb-8">
+<div class="h-full bg-secondary w-full"></div>
+</div>
+<span class="font-label-eyebrow text-label-eyebrow text-secondary uppercase tracking-[0.2em]">Zero-Trust Protocols</span>
+</div>
+<!-- Contract Lifecycle -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-highest/10 border border-outline-variant/30 p-12">
+<h3 class="font-headline-section text-[32px] text-on-surface mb-4 uppercase tracking-tighter">Contract Lifecycle</h3>
+<p class="font-ui-standard text-ui-standard text-on-surface-variant mb-8">
+                            End-to-end management of legal instruments, from initial tendering to automated renewals.
+                        </p>
+<div class="h-1 w-full bg-outline-variant/20 mb-8">
+<div class="h-full bg-primary w-1/2"></div>
+</div>
+<span class="font-label-eyebrow text-label-eyebrow text-secondary uppercase tracking-[0.2em]">Automated Integrity</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Command Forms Section -->
+<section class="py-section-padding bg-surface overflow-hidden relative">
+<div class="absolute top-0 right-0 w-1/2 h-full hex-mesh opacity-20 pointer-events-none"></div>
+<div class="max-w-container-max mx-auto px-margin-edge relative z-10">
+<div class="grid md:grid-cols-2 gap-40">
+<!-- Logistics Request -->
+<div class="space-y-12">
+<div class="border-l-4 border-primary pl-8">
+<h2 class="font-headline-section text-headline-section text-on-surface mb-2 uppercase italic">Transit Request</h2>
+<p class="font-ui-standard text-ui-standard text-on-surface-variant uppercase tracking-widest">Operation: Global Logistics Deployment</p>
+</div>
+<form class="grid grid-cols-2 gap-x-gutter gap-y-12">
+<div class="col-span-1">
+<label class="font-label-eyebrow text-label-eyebrow text-secondary uppercase block mb-2">Cargo Classification</label>
+<input class="w-full bg-transparent border-b border-outline text-on-surface font-ui-standard py-2 focus:outline-none focus:border-primary transition-colors" placeholder="CRITICAL / STANDARD / FRAGILE" type="text"/>
+</div>
+<div class="col-span-1">
+<label class="font-label-eyebrow text-label-eyebrow text-secondary uppercase block mb-2">Aggregate Weight (Metric)</label>
+<input class="w-full bg-transparent border-b border-outline text-on-surface font-ui-standard py-2 focus:outline-none focus:border-primary transition-colors" placeholder="TONNES" type="text"/>
+</div>
+<div class="col-span-1">
+<label class="font-label-eyebrow text-label-eyebrow text-secondary uppercase block mb-2">Origin Node</label>
+<input class="w-full bg-transparent border-b border-outline text-on-surface font-ui-standard py-2 focus:outline-none focus:border-primary transition-colors" placeholder="CITY / PORT CODE" type="text"/>
+</div>
+<div class="col-span-1">
+<label class="font-label-eyebrow text-label-eyebrow text-secondary uppercase block mb-2">Destination Node</label>
+<input class="w-full bg-transparent border-b border-outline text-on-surface font-ui-standard py-2 focus:outline-none focus:border-primary transition-colors" placeholder="CITY / PORT CODE" type="text"/>
+</div>
+<div class="col-span-2">
+<button class="w-full py-4 border border-primary text-primary font-ui-standard text-ui-standard uppercase tracking-[0.4em] hover:bg-primary hover:text-on-primary transition-all duration-300" type="submit">
+                                    Initiate Transit Protocol
+                                </button>
+</div>
+</form>
+</div>
+<!-- Procurement Sourcing Request -->
+<div class="space-y-12">
+<div class="border-l-4 border-secondary pl-8">
+<h2 class="font-headline-section text-headline-section text-on-surface mb-2 uppercase italic">Sourcing Order</h2>
+<p class="font-ui-standard text-ui-standard text-on-surface-variant uppercase tracking-widest">Operation: Strategic Procurement</p>
+</div>
+<form class="grid grid-cols-2 gap-x-gutter gap-y-12">
+<div class="col-span-2">
+<label class="font-label-eyebrow text-label-eyebrow text-secondary uppercase block mb-2">Asset Description</label>
+<input class="w-full bg-transparent border-b border-outline text-on-surface font-ui-standard py-2 focus:outline-none focus:border-secondary transition-colors" placeholder="SPECIFY ASSET CATEGORY" type="text"/>
+</div>
+<div class="col-span-1">
+<label class="font-label-eyebrow text-label-eyebrow text-secondary uppercase block mb-2">Quantity Required</label>
+<input class="w-full bg-transparent border-b border-outline text-on-surface font-ui-standard py-2 focus:outline-none focus:border-secondary transition-colors" placeholder="UNITS" type="number"/>
+</div>
+<div class="col-span-1">
+<label class="font-label-eyebrow text-label-eyebrow text-secondary uppercase block mb-2">Target Budget (USD)</label>
+<input class="w-full bg-transparent border-b border-outline text-on-surface font-ui-standard py-2 focus:outline-none focus:border-secondary transition-colors" placeholder="EXACT / RANGE" type="text"/>
+</div>
+<div class="col-span-2">
+<label class="font-label-eyebrow text-label-eyebrow text-secondary uppercase block mb-2">Deployment Timeline</label>
+<input class="w-full bg-transparent border-b border-outline text-on-surface font-ui-standard py-2 focus:outline-none focus:border-secondary transition-colors" placeholder="EXPECTED DATE OF ARRIVAL" type="text"/>
+</div>
+<div class="col-span-2">
+<button class="w-full py-4 border border-secondary text-secondary font-ui-standard text-ui-standard uppercase tracking-[0.4em] hover:bg-secondary hover:text-on-secondary transition-all duration-300" type="submit">
+                                    Secure Strategic Sourcing
+                                </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="grid grid-cols-4 gap-gutter px-margin-edge py-section-padding max-w-container-max mx-auto">
+<div class="col-span-4 md:col-span-2 space-y-8">
+<div class="font-display-hero text-[48px] text-primary dark:text-primary-fixed-dim uppercase tracking-tighter">SGS</div>
+<p class="font-body-large text-body-large text-on-surface-variant max-w-sm">
+                    Operating the world's most critical supply chains with absolute authority and technological precision.
+                </p>
+</div>
+<div class="col-span-2 md:col-span-1 space-y-4">
+<span class="font-label-eyebrow text-label-eyebrow text-secondary uppercase">Sectors</span>
+<nav class="flex flex-col gap-2">
+<a class="font-ui-standard text-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 transition-transform" href="#">GLOBAL NODES</a>
+<a class="font-ui-standard text-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 transition-transform" href="#">FLEET OPERATIONS</a>
+<a class="font-ui-standard text-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 transition-transform" href="#">AVIATION DIVISION</a>
+<a class="font-ui-standard text-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 transition-transform" href="#">MARINE LOGISTICS</a>
+</nav>
+</div>
+<div class="col-span-2 md:col-span-1 space-y-4">
+<span class="font-label-eyebrow text-label-eyebrow text-secondary uppercase">Information</span>
+<nav class="flex flex-col gap-2">
+<a class="font-ui-standard text-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 transition-transform" href="#">STRATEGIC ADVISORY</a>
+<a class="font-ui-standard text-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 transition-transform" href="#">PRIVACY PROTOCOL</a>
+<a class="font-ui-standard text-ui-standard text-on-surface-variant hover:text-primary transition-all duration-300 hover:translate-x-1 transition-transform" href="#">TERMS OF ENGAGEMENT</a>
+</nav>
+</div>
+</div>
+<div class="w-full text-center pb-12">
+<div class="font-display-hero text-[120px] md:text-[200px] text-on-surface uppercase tracking-tighter opacity-5 select-none">SMART GLOBAL SERVICE</div>
+<p class="font-label-eyebrow text-label-eyebrow text-on-surface-variant/40 mt-8 tracking-[0.6em]">© 2024 SMART GLOBAL SERVICE. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+</body></html>

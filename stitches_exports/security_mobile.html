@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SGS Security Services | Global Protection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=DM+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .circuit-plane {
+            background-image: radial-gradient(circle, #BBDEFB 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(187, 222, 251, 0.1);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#c9e6ff",
+                    "surface": "#001523",
+                    "error-container": "#93000a",
+                    "on-primary-fixed": "#001945",
+                    "surface-variant": "#12384f",
+                    "on-primary": "#002d6f",
+                    "surface-container-high": "#022d43",
+                    "outline-variant": "#434652",
+                    "on-primary-fixed-variant": "#00429c",
+                    "on-secondary": "#003063",
+                    "outline": "#8d909d",
+                    "secondary-container": "#005db7",
+                    "on-primary-container": "#a1bbff",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "inverse-surface": "#c9e6ff",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-error-container": "#ffdad6",
+                    "surface-dim": "#001523",
+                    "on-tertiary-fixed": "#360f00",
+                    "secondary-fixed-dim": "#a9c7ff",
+                    "surface-tint": "#b0c6ff",
+                    "primary": "#b0c6ff",
+                    "on-secondary-container": "#c6d9ff",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-secondary-fixed-variant": "#00468c",
+                    "on-error": "#690005",
+                    "on-secondary-fixed": "#001b3d",
+                    "surface-container-low": "#001e2f",
+                    "surface-bright": "#183c54",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "secondary": "#a9c7ff",
+                    "tertiary-container": "#853100",
+                    "on-tertiary": "#581e00",
+                    "error": "#ffb4ab",
+                    "on-background": "#c9e6ff",
+                    "inverse-primary": "#2b5bb5",
+                    "tertiary": "#ffb596",
+                    "primary-container": "#0d47a1",
+                    "on-tertiary-container": "#ffa781",
+                    "surface-container": "#002235",
+                    "surface-container-lowest": "#00101b",
+                    "background": "#001523",
+                    "on-surface-variant": "#c3c6d4",
+                    "surface-container-highest": "#12384f",
+                    "inverse-on-surface": "#0c344a",
+                    "primary-fixed": "#d9e2ff",
+                    "secondary-fixed": "#d6e3ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "section-padding": "120px",
+                    "margin-edge": "64px",
+                    "gutter": "24px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "body-large": ["DM Sans"],
+                    "display-hero": ["Cormorant Garamond"],
+                    "headline-section": ["Cormorant Garamond"],
+                    "label-eyebrow": ["DM Sans"],
+                    "ui-standard": ["DM Sans"]
+            },
+            "fontSize": {
+                    "body-large": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "300"}],
+                    "display-hero": ["84px", {"lineHeight": "0.9", "letterSpacing": "-0.03em", "fontWeight": "100"}],
+                    "headline-section": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "300"}],
+                    "label-eyebrow": ["11px", {"lineHeight": "1.0", "letterSpacing": "0.14em", "fontWeight": "500"}],
+                    "ui-standard": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-ui-standard antialiased overflow-x-hidden">
+<!-- TopAppBar Shell Component -->
+<header class="fixed top-0 w-full z-50 bg-[rgba(0,21,35,0.03)] backdrop-blur-3xl border-b border-white/10">
+<div class="flex justify-between items-center w-full px-6 py-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="public">public</span>
+<span class="font-display-hero text-headline-section text-on-surface uppercase tracking-tighter">SGS</span>
+</div>
+<button class="p-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</button>
+</div>
+</header>
+<!-- FAB: Request Service -->
+<button class="fixed bottom-8 right-6 z-[70] bg-primary-container text-on-primary-container px-6 py-4 flex items-center gap-3 shadow-2xl transition-all hover:bg-secondary-container active:scale-95">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="font-ui-standard uppercase tracking-widest text-[12px] font-bold">Request Service</span>
+</button>
+<!-- Hero Section -->
+<main class="relative pt-32 pb-section-padding px-6 overflow-hidden">
+<!-- Circuit Plane Background -->
+<div class="absolute inset-0 z-0 circuit-plane opacity-5"></div>
+<div class="absolute inset-0 z-0 bg-gradient-to-tr from-primary-container/10 to-transparent pointer-events-none"></div>
+<div class="relative z-10">
+<span class="font-label-eyebrow text-label-eyebrow text-on-surface-variant mb-4 block">PREMIUM SECURITY OPERATIONS</span>
+<h1 class="font-display-hero text-[64px] leading-none text-on-surface mb-8">Security. Uncompromising Protection.</h1>
+<p class="font-body-large text-body-large text-on-surface-variant max-w-lg mb-12">
+                Specialized tactical units for high-risk maritime and land-based environments. We deploy elite teams trained for absolute mission success in global hotspots.
+            </p>
+<!-- Hero CTA -->
+<a class="inline-block bg-primary text-on-primary px-10 py-5 font-ui-standard font-bold uppercase tracking-widest transition-all hover:brightness-110 active:scale-95" href="#request-service">
+                INITIATE PROTOCOL
+            </a>
+</div>
+</main>
+<!-- Sub-services Editorial Grid -->
+<section class="py-section-padding px-6 bg-surface-container-low">
+<div class="flex flex-col gap-12">
+<div class="space-y-4">
+<span class="font-label-eyebrow text-label-eyebrow text-secondary uppercase">Operational Verticals</span>
+<h2 class="font-headline-section text-headline-section">Elite Escort Services</h2>
+</div>
+<!-- Bento Card 1 -->
+<div class="glass-panel p-8 flex flex-col gap-6">
+<div class="w-full h-64 bg-surface-container-highest overflow-hidden">
+<img alt="VIP Escort" class="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700" data-alt="A professional security detail in dark suits and discreet communication earpieces flanking a high-value client through a modern airport terminal. The lighting is cinematic with high contrast, cool blue tones, and a sharp, editorial focus that emphasizes discipline and vigilance. The background features polished marble floors and glowing flight information screens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA676nFUhitdZGkykg7BMPxcqPcJvVlZKov6F_RIv_QQ4f0YX3XWVDd_muEgWJSrMbAVWQ0s3e70O2zirsku1CeFo0MzFwvb-UBG62P-6jlQ9M4AJ2sz7_0Vf35s5_uWAlY7LDMnbb6_Uv9hkDD58AswS4X-cu6eLsIHEU_YaszmxhAe54CECPOBEN5zQDIRXP3AdLa3AovPFmnh6tnhAeGz1_zsUS-5_JkZ5aVlGWJNHv2xrm9soCY5sBKVa9cjLBl6YZKwRmp5Cc"/>
+</div>
+<div>
+<h3 class="font-display-hero text-headline-section mb-2">VIP Escort Detail</h3>
+<p class="font-ui-standard text-on-surface-variant text-body-large mb-4">Armed and unarmed protection for diplomats, executives, and high-net-worth individuals navigating complex urban landscapes.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-highest text-primary font-label-eyebrow">LEVEL 4 CLEARANCE</span>
+<span class="px-3 py-1 bg-surface-container-highest text-primary font-label-eyebrow">ARMOURED VEHICLES</span>
+</div>
+</div>
+</div>
+<!-- Bento Card 2 -->
+<div class="glass-panel p-8 flex flex-col gap-6">
+<div class="w-full h-64 bg-surface-container-highest overflow-hidden">
+<img alt="Cargo Security" class="w-full h-full object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700" data-alt="A high-value cargo transport convoy consisting of black armored SUVs on a remote highway at dusk. The sky is a deep indigo, and the vehicle headlights cast long, sharp beams of electric blue across the asphalt. The composition is low-angle, conveying power and security, with a clean, sharp-edged aesthetic typical of luxury automotive photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASEhi--46bAy6dv2atofVQV8zv4VWAEUntTCa7XNqUMHKFJ9txtjAGb7oPMrM_nMpOktl7tCHVXAYe251MphG7kWuHATOcQmaIeB2oZJ8T_Fh5I76xROAxm6DEEjRPaQfLvtu2w66hEnk4LLByyX4EePgLG7b7XBm2QZmueFdzO4IVWFciVMOiQ2IlZKe_3khANOjUVWEsqO-qKxVyM1-QNwjbDMOaLnSVymms0j1IGabAYyk4A4LRaVISTSRcvS9Mp_6Ff5YHOBg"/>
+</div>
+<div>
+<h3 class="font-display-hero text-headline-section mb-2">High-Value Logistics</h3>
+<p class="font-ui-standard text-on-surface-variant text-body-large mb-4">End-to-end tactical security for sensitive assets, bullion, and strategic technology shipments across international borders.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-highest text-primary font-label-eyebrow">REAL-TIME GPS</span>
+<span class="px-3 py-1 bg-surface-container-highest text-primary font-label-eyebrow">TACTICAL RESPONSE</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Multi-step Form Section -->
+<section class="py-section-padding px-6 relative bg-surface" id="request-service">
+<div class="absolute inset-0 z-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+<div class="relative z-10 glass-panel p-8">
+<div class="mb-12">
+<div class="flex justify-between items-center mb-6">
+<span class="font-label-eyebrow text-primary">SERVICE REQUEST FORM</span>
+<span class="font-label-eyebrow text-on-surface-variant">STEP 01 / 03</span>
+</div>
+<div class="w-full h-[2px] bg-surface-container-highest">
+<div class="w-1/3 h-full bg-primary"></div>
+</div>
+</div>
+<form class="space-y-10">
+<!-- Step 1 Content -->
+<div class="space-y-8">
+<div class="space-y-2">
+<label class="font-label-eyebrow text-secondary uppercase">Escort Type</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant py-4 text-on-surface focus:ring-0 focus:border-primary font-ui-standard">
+<option class="bg-surface">Tactical Armed Detail</option>
+<option class="bg-surface">Unarmed Executive Protection</option>
+<option class="bg-surface">Maritime Security Team</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<div class="space-y-2">
+<label class="font-label-eyebrow text-secondary uppercase">Personnel</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant py-4 text-on-surface focus:ring-0 focus:border-primary font-ui-standard placeholder:text-surface-variant" placeholder="2-12" type="number"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-eyebrow text-secondary uppercase">Duration</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant py-4 text-on-surface focus:ring-0 focus:border-primary font-ui-standard placeholder:text-surface-variant" placeholder="Days/Weeks" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-eyebrow text-secondary uppercase">Operation Location</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant py-4 text-on-surface focus:ring-0 focus:border-primary font-ui-standard placeholder:text-surface-variant" placeholder="City, Region or GPS Coord" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-eyebrow text-secondary uppercase">Nature of Assignment</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant py-4 text-on-surface focus:ring-0 focus:border-primary font-ui-standard placeholder:text-surface-variant resize-none" placeholder="Brief mission overview..." rows="3"></textarea>
+</div>
+<div class="space-y-4">
+<label class="font-label-eyebrow text-secondary uppercase">Security Level</label>
+<div class="flex flex-col gap-4">
+<label class="flex items-center gap-4 cursor-pointer group">
+<input class="form-radio text-primary bg-transparent border-outline-variant w-5 h-5 focus:ring-offset-background" name="level" type="radio"/>
+<span class="font-ui-standard group-hover:text-primary transition-colors">Tier 1: High-Threat Environment</span>
+</label>
+<label class="flex items-center gap-4 cursor-pointer group">
+<input checked="" class="form-radio text-primary bg-transparent border-outline-variant w-5 h-5 focus:ring-offset-background" name="level" type="radio"/>
+<span class="font-ui-standard group-hover:text-primary transition-colors">Tier 2: Standard Executive Protection</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Form Navigation -->
+<button class="w-full bg-primary text-on-primary py-6 font-ui-standard font-bold uppercase tracking-widest flex justify-center items-center gap-3 active:scale-95 transition-all" type="button">
+                    PROCEED TO CONTACT
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+</div>
+</section>
+<!-- Footer Component -->
+<footer class="relative w-full py-section-padding border-t border-white/10 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-6 flex flex-col gap-12">
+<div class="font-display-hero text-[64px] text-on-surface uppercase tracking-widest text-center">SGS</div>
+<div class="grid grid-cols-2 gap-8 text-center sm:text-left">
+<div class="space-y-4">
+<span class="font-label-eyebrow text-secondary">REGIONAL HUBS</span>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant font-ui-standard hover:text-primary transition-colors" href="#">Lagos</a></li>
+<li><a class="text-on-surface-variant font-ui-standard hover:text-primary transition-colors" href="#">London</a></li>
+<li><a class="text-on-surface-variant font-ui-standard hover:text-primary transition-colors" href="#">Dubai</a></li>
+<li><a class="text-on-surface-variant font-ui-standard hover:text-primary transition-colors" href="#">Singapore</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<span class="font-label-eyebrow text-secondary">CONTACT</span>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant font-ui-standard hover:text-primary transition-colors" href="#">Intel Reports</a></li>
+<li><a class="text-on-surface-variant font-ui-standard hover:text-primary transition-colors" href="#">Emergency Ops</a></li>
+<li><a class="text-on-surface-variant font-ui-standard hover:text-primary transition-colors" href="#">Press Office</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-12 border-t border-white/5 flex flex-col items-center gap-6">
+<p class="text-[10px] tracking-widest text-on-surface-variant uppercase text-center">© 2024 SMART GLOBAL SERVICE. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="shield">shield</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="verified_user">verified_user</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="policy">policy</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
