@@ -110,7 +110,7 @@ export function DesktopLogisticsShell() {
             </div>
 
             <div className={styles.actions}>
-              <Link href="/desktop/portal/payment" className={styles.cta}>
+              <Link href="#request" className={styles.cta}>
                 Request Service
               </Link>
             </div>

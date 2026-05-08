@@ -46,11 +46,15 @@ export function ServiceRequestForm({ slug, embed }: ServiceRequestFormProps) {
               Request received. Reference: <strong>{state.reference}</strong>
             </p>
             <p className={styles.note}>
-              Our desk will follow up using your contact details.
+              You will receive a quotation by email when your request is priced. Create a portal
+              account with the same email to track status.
             </p>
             <div className={styles.formActions}>
-              <Link className={styles.secondaryCta} href="/portal/payment">
-                Optional — proceed to payment
+              <Link className={styles.secondaryCta} href="/portal/dashboard">
+                Open portal dashboard
+              </Link>
+              <Link className={styles.secondaryCta} href="/portal/register">
+                Register for updates
               </Link>
             </div>
           </div>

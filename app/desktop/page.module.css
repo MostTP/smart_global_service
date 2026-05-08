@@ -485,8 +485,19 @@
 }
 
 .footerBrand {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   margin-bottom: 32px;
+}
+
+.footerBrandMark {
+  width: 40px;
+  height: auto;
+  display: block;
+}
+
+.footerBrandText {
   font-family: var(--font-display);
   font-size: 36px;
   text-transform: uppercase;

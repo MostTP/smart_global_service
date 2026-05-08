@@ -188,3 +188,65 @@
   font-weight: 300;
 }
 
+.banner {
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  border: 1px solid rgba(176, 198, 255, 0.35);
+  background: rgba(0, 40, 60, 0.35);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-on-surface);
+}
+
+.banner a {
+  color: var(--color-primary);
+  word-break: break-all;
+}
+
+.tableWrap {
+  margin-top: 24px;
+  overflow: auto;
+  max-width: 1200px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(67, 70, 82, 0.45);
+  vertical-align: top;
+}
+
+.table th {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #a9c7ff;
+  font-weight: 600;
+}
+
+.mono {
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+}
+
+.cellActions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rowLink {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+

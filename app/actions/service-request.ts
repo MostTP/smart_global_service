@@ -1,5 +1,9 @@
 "use server";
 
+import { auth } from "@/auth";
+import { appendAudit } from "@/lib/audit";
+import { notifyChannels } from "@/lib/notify";
+import { prisma } from "@/lib/prisma";
 import {
   SERVICE_REQUEST_FORM_CONFIG,
   type ServiceRequestSlug,
@@ -48,10 +52,55 @@ export async function submitServiceRequest(
   }
 
   const reference = crypto.randomUUID();
-  console.log(
-    "[service-request]",
-    JSON.stringify({ reference, slug: serviceSlug, ...payload }),
-  );
+  const session = await auth();
+
+  try {
+    const row = await prisma.serviceRequest.create({
+      data: {
+        reference,
+        serviceSlug,
+        payload,
+        status: "SUBMITTED",
+        contactEmail: payload.contactEmail || null,
+        contactName: null,
+        contactPhone: payload.contactPhone || null,
+        userId: session?.user?.id,
+      },
+    });
+
+    await appendAudit({
+      actorUserId: session?.user?.id,
+      entityType: "ServiceRequest",
+      entityId: row.id,
+      action: "request.created",
+      payload: { reference: row.reference, serviceSlug },
+    });
+
+    if (row.contactEmail) {
+      await notifyChannels({
+        channels: ["email"],
+        title: "SGS — request received",
+        body: `Thank you. Reference ${reference}. We will send a formal quotation to this address once reviewed.`,
+        emailTo: row.contactEmail,
+      });
+    }
+
+    if (session?.user?.id) {
+      await notifyChannels({
+        userId: session.user.id,
+        channels: ["in_app"],
+        title: "Request submitted",
+        body: `${reference} (${serviceSlug})`,
+        metadata: { requestId: row.id, reference },
+      });
+    }
+  } catch (e) {
+    console.error("[service-request]", e);
+    return {
+      status: "error",
+      message: "We could not save your request. Please try again shortly.",
+    };
+  }
 
   return { status: "success", reference, slug: serviceSlug };
 }

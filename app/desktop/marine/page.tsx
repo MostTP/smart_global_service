@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { DesktopTopNav } from "@/components/desktop-top-nav";
 import { MaterialIcon } from "@/components/material-icon";
 import { ServiceRequestForm } from "@/components/service-request-form";
@@ -23,6 +24,11 @@ export default function DesktopMarinePage() {
                 luxury yacht charters to high-capacity commercial logistics, SGS
                 Marine delivers unwavering reliability on every horizon.
               </p>
+              <div className={styles.heroBtns}>
+                <Link href="#request" className={styles.heroPrimary}>
+                  Request Service
+                </Link>
+              </div>
             </div>
           </div>
           <svg

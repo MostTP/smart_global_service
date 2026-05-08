@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -42,7 +43,14 @@ export function DesktopTopNav({ active }: { active?: string }) {
     <nav className={styles.nav} aria-label="Primary">
       <div className={styles.inner}>
         <Link href="/" className={styles.brand}>
-          SGS
+          <Image
+            src="/logo.png"
+            alt="SGS — Smart Global Service"
+            width={52}
+            height={52}
+            className={styles.brandMark}
+            priority
+          />
         </Link>
         <div className={styles.links}>
           {nav.map((l) => (
@@ -55,7 +63,7 @@ export function DesktopTopNav({ active }: { active?: string }) {
             </Link>
           ))}
         </div>
-        <Link href="/portal/payment" className={styles.cta}>
+        <Link href="/services" className={styles.cta}>
           REQUEST SERVICE
           <MaterialIcon name="arrow_outward" className={styles.ctaIcon} aria-hidden />
         </Link>
@@ -88,7 +96,7 @@ export function DesktopTopNav({ active }: { active?: string }) {
             </Link>
           ))}
           <Link
-            href="/portal/payment"
+            href="/services"
             className={styles.mobileCta}
             onClick={() => setOpen(false)}
           >

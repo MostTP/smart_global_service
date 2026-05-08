@@ -197,7 +197,7 @@ export default function DesktopHomePage() {
             <h2 className={styles.ctaTitle}>
               Ready to orchestrate your global movements?
             </h2>
-            <Link className={styles.ctaButton} href="/portal/payment">
+            <Link className={styles.ctaButton} href="/services">
               CONTACT THE COMMAND CENTER
             </Link>
           </div>
@@ -207,7 +207,16 @@ export default function DesktopHomePage() {
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
           <div className={styles.footerCol}>
-            <span className={styles.footerBrand}>SGS</span>
+            <span className={styles.footerBrand}>
+              <Image
+                src="/logo.png"
+                alt=""
+                width={40}
+                height={40}
+                className={styles.footerBrandMark}
+              />
+              <span className={styles.footerBrandText}>SGS</span>
+            </span>
             <p className={styles.footerBody}>
               Smart Global Service is the definitive partner for multi-modal executive
               transit and global supply chain orchestration.

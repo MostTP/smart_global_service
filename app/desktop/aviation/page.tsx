@@ -42,8 +42,8 @@ export function DesktopAviationShell() {
               requirements.
             </p>
             <div className={styles.heroBtns}>
-              <Link href="/desktop/portal/payment" className={styles.primary}>
-                Book Mission
+              <Link href="#request" className={styles.primary}>
+                Request Service
               </Link>
               <Link href="/desktop#operations" className={styles.secondary}>
                 View Operations

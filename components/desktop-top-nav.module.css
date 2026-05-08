@@ -25,12 +25,16 @@
 }
 
 .brand {
-  font-family: var(--font-display);
-  font-size: clamp(28px, 5vw, 36px);
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
+  line-height: 0;
+}
+
+.brandMark {
+  width: clamp(40px, 7vw, 52px);
+  height: auto;
+  display: block;
 }
 
 .links {

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { DesktopTopNav } from "@/components/desktop-top-nav";
 import { MaterialIcon } from "@/components/material-icon";
 import { ServiceRequestForm } from "@/components/service-request-form";
@@ -19,6 +20,11 @@ export function DesktopSecurityShell() {
             sovereign-level asset protection to private VIP transit, we operate at
             the intersection of precision intelligence and tactical dominance.
           </p>
+          <div className={styles.heroBtns}>
+            <Link href="#request" className={styles.heroPrimary}>
+              Request Service
+            </Link>
+          </div>
           <div className={styles.heroImage}>
             <Image
               alt="SGS Security Operations"

@@ -67,6 +67,21 @@
   font-weight: 300;
 }
 
+.heroBtns {
+  margin-top: 40px;
+}
+
+.heroPrimary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: 20px 40px;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+}
+
 .portfolio {
   position: relative;
   z-index: 1;

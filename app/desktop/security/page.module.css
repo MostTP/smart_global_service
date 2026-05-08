@@ -52,12 +52,29 @@
 }
 
 .p {
-  margin: 0 auto 64px;
+  margin: 0 auto 24px;
   max-width: 720px;
   font-size: 18px;
   line-height: 1.6;
   font-weight: 300;
   color: var(--color-on-surface-variant);
+}
+
+.heroBtns {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 40px;
+}
+
+.heroPrimary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: 20px 40px;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .heroImage {

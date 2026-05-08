@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { DesktopTopNav } from "@/components/desktop-top-nav";
 import { ServiceRequestForm } from "@/components/service-request-form";
 import styles from "./page.module.css";
@@ -24,6 +25,11 @@ export function DesktopInvestmentShell() {
               hubs to advanced aviation equity, we design the financial foundations
               of global movement.
             </p>
+            <div className={styles.heroBtns}>
+              <Link href="#request" className={styles.heroPrimary}>
+                Request Service
+              </Link>
+            </div>
           </div>
         </section>
 
