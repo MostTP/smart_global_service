@@ -46,8 +46,8 @@ export function DesktopTopNav({ active }: { active?: string }) {
           <Image
             src="/logo.png"
             alt="SGS — Smart Global Service"
-            width={52}
-            height={52}
+            width={164}
+            height={164}
             className={styles.brandMark}
             priority
           />
