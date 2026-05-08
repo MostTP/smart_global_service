@@ -57,12 +57,12 @@
 }
 
 .link:hover {
-  color: #a9c7ff;
+  color: rgba(0, 71, 161, 0.9);
 }
 
 .active {
-  color: var(--color-primary);
-  border-bottom-color: var(--color-primary);
+  color: #0d47a1;
+  border-bottom-color: #0d47a1;
 }
 
 .cta {
